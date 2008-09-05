@@ -1,7 +1,7 @@
 all: index.html
 
 %.html: %.txt
-	asciidoc -d book $<
+	asciidoc -a toc -d book $<
 
 clean:
 	@$(RM) index.html
