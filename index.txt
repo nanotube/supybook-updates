@@ -13,7 +13,13 @@ After running supybot-wizard and starting the bot, connect to the same IRC netwo
 
 === Networks ===
 
+Related plugins: [green]#Network, Services#.
+
 ==== Adding a network ====
+
+==== Reconnecting ====
+
+`reconnect [network] [quit message]`.
 
 ==== Listing networks ====
 
@@ -28,6 +34,13 @@ freenode: wolfe.freenode.net and ircnet: irc.elisa.fi
 
 ==== Listing network servers ====
 
+`config networks.<network>.servers`
+
+.output
+----
+chat.freenode.net:6667
+----
+
 ==== Services: NickServ ====
 
 `services password <nick> [password]` can be used to set or remove NickServ password. `services identify` identifies the bot to NickServ with the current nick.
@@ -36,7 +49,9 @@ freenode: wolfe.freenode.net and ircnet: irc.elisa.fi
 
 === Channels ===
 
-NOTE: Commands in this section (such as adding/removing channels) work in the current network, eg. the one you are messaging the bot in.
+Related plugins: [green]#Channel#.
+
+NOTE: Commands in this section (such as adding/removing channels) work in the current network, eg. the one you are messaging the bot in. The commands also accept a `[channel]` parameter which is needed only when the command is written in private.
 
 ==== Adding a new channel ====
 
@@ -46,18 +61,64 @@ A new channel is added by messaging the bot in the same network with `join <chan
 
 `part [channel] [reason]`
 
-==== Modifying channel settings ====
+==== Modifying channel config ====
+
+`config channel [channel] <name> <value>`
+
 ==== Setting the key ====
+
+`channel key [channel] [key]` can be used to set or clear the channel key.
+
 ==== Setting the limit ====
-==== Maintaining ban list ====
-==== Maintaining ignore list ====
+
+`channel limit [channel] [limit]` sets or clears the channel limit.
+
+==== Channel commands ====
+
+TODO: kban, op, voice, etc
+
+==== Maintaining the ban list ====
+
+`channel ban add [channel] <nick|hostmask> [expires]`
+
+`channel ban list [channel]`
+
+`channel ban remove [channel] <hostmask>`
+
+NOTE: Users matching the ban list are not automatically kicked off the channel. See the `kban` command to kick and ban a user. (TODO: check)
+
+==== Maintaining the ignore list ====
+
+`channel ignore add [channel] <nick|hostmask> [expires]`
+
+`channel ignore list [channel]`
+
+`channel ignore remove [channel] <hostmask>`
+
+NOTE: There is also a global ignore list.
+
 ==== Forcing channel modes ====
+
 ==== Listing channel nicks ====
+
+`channel nicks [channel]`
+
 ==== Listing channels ====
+
+`channels`
+
+NOTE: This only works in private, to prevent knowledge of top secret channels from falling to wrong hands.
+
+You can list channels in another network with `config networks.<network>.channels`.
+
 ==== Channel information ====
+
 ==== Adverts ====
+
 ==== Topic operations ====
+
 ==== Logs ====
+
 ==== Auto-ops & voices ====
 
 === Users ===
