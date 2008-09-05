@@ -161,11 +161,33 @@ NOTE: There is no way to add network-specific hostmasks (TODO: confirm).
 
 === General bot maintenance ===
 
+Related plugins: [green]#Admin, Config#.
+
 ==== Setting nickname & alternative nick ====
+
+`admin nick <newnick>`
+
+`config nick`
+
+`config nick.alternates` - space-separated list of alternate nicks, %s refers to nick.
+
 ==== Setting ident ====
+
+`config ident <newident>`
+
 ==== Setting ircname/realname ====
-==== Setting command prefix ====
+
+==== Setting command prefix / controlling when the bot replies ====
+
+TODO: config search nick & config search prefix contain related stuff.
+
 ==== Listing and searching settings ====
+
+`config search <word>` - list config items containing word.
+
+`config <name>` - show config value for name.
+
+`config <name> <value>` - set config value for name.
 
 === Sockpuppetry ===
 
