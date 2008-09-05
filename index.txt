@@ -75,7 +75,7 @@ A new channel is added by messaging the bot in the same network with `join <chan
 
 ==== Channel commands ====
 
-TODO: kban, op, voice, etc
+TODO: kban, op, voice, alert, cycle, etc.
 
 ==== Maintaining the ban list ====
 
@@ -111,7 +111,7 @@ NOTE: This only works in private, to prevent knowledge of top secret channels fr
 
 You can list channels in another network with `config networks.<network>.channels`.
 
-==== Channel information ====
+==== Other channel information ====
 
 ==== Adverts ====
 
@@ -121,13 +121,43 @@ You can list channels in another network with `config networks.<network>.channel
 
 ==== Auto-ops & voices ====
 
+Auto-opping is provided by the [green]#AutoMode# plugin.
+
 === Users ===
 
+Related plugins: [green]#Users#.
+
+TODO: general info about globality of users, how bot recognizes them etc. Also note that if users knowing each others' names is an issue, they should come up with a different alias (user changename etc).
+
 ==== Adding a new user ====
-==== Setting user hostmasks ====
+
+`user register <name> <password>`
+
+==== Manipulating hostmasks ====
+
+`user hostmask add` - add your current hostmask. Obviously this makes only sense after identify.
+
+`user hostmask add [name] [hostmask] [password]` - add hostmask for another user. If not owner, password must be given.
+
+`user hostmask remove <name> <hostmask> [password]`
+
+NOTE: There is no way to add network-specific hostmasks (TODO: confirm).
+
 ==== Listing users ====
-==== Listing hostmasks ====
+
+`user list [glob]` - list registered users. Note that the list of users is global across networks.
+
 ==== Deleting users ====
+
+`user unregister <name> [password]`
+
+==== Changing password ====
+
+==== Renaming a user ====
+
+`user changename <name> <new name> [password]`
+
+==== Manipulating user capabilities ====
 
 === General bot maintenance ===
 
