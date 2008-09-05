@@ -1,0 +1,49 @@
+Supybook
+========
+Heikki Hokkanen <hoxu@users.sf.net>
+
+Getting started
+---------------
+* Identifying to the bot
+
+Administrative tasks
+--------------------
+
+* Networks
+	. Adding a network
+	. Listing networks
+	. Adding a server
+	. Listing network servers
+	. Services / NickServ
+	. Deleting a network
+* Channels
+	. Adding a new channel
+	. Removing a channel
+	. Modifying channel settings
+	. Setting the key
+	. Setting the limit
+	. Maintaining ban list
+	. Maintaining ignore list
+	. Forcing channel modes
+	. Listing channel nicks
+	. Listing channels
+	. Channel information
+	. Adverts
+	. Topic operations
+	. Logs
+* Users
+	. Adding a new user
+	. Setting user hostmasks
+	. Listing users
+	. Listing hostmasks
+	. Deleting users
+* General bot maintenance
+	. Setting nickname & alternative nick
+	. Setting ident
+	. Setting ircname/realname
+	. Setting command prefix
+	. Listing and searching settings
+* Sockpuppetry
+	. Tell
+	. Sending raw server commands
+
