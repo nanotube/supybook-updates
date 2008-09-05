@@ -2,48 +2,82 @@ Supybook
 ========
 Heikki Hokkanen <hoxu@users.sf.net>
 
-Getting started
----------------
-* Identifying to the bot
+== Getting started ==
 
-Administrative tasks
---------------------
+=== Identifying to the bot ===
 
-* Networks
-	. Adding a network
-	. Listing networks
-	. Adding a server
-	. Listing network servers
-	. Services / NickServ
-	. Deleting a network
-* Channels
-	. Adding a new channel
-	. Removing a channel
-	. Modifying channel settings
-	. Setting the key
-	. Setting the limit
-	. Maintaining ban list
-	. Maintaining ignore list
-	. Forcing channel modes
-	. Listing channel nicks
-	. Listing channels
-	. Channel information
-	. Adverts
-	. Topic operations
-	. Logs
-* Users
-	. Adding a new user
-	. Setting user hostmasks
-	. Listing users
-	. Listing hostmasks
-	. Deleting users
-* General bot maintenance
-	. Setting nickname & alternative nick
-	. Setting ident
-	. Setting ircname/realname
-	. Setting command prefix
-	. Listing and searching settings
-* Sockpuppetry
-	. Tell
-	. Sending raw server commands
+After running supybot-wizard and starting the bot, connect to the same IRC network it is on, and /query it. You can identify with the `identify <name> <password>` command. You can check the bot's idea of who you are with the `whoami` command.
+
+
+== Administrative tasks ==
+
+=== Networks ===
+
+==== Adding a network ====
+
+==== Listing networks ====
+
+`networks`
+
+.output
+----
+freenode: wolfe.freenode.net and ircnet: irc.elisa.fi
+----
+
+==== Adding a server ====
+
+==== Listing network servers ====
+
+==== Services: NickServ ====
+
+`services password <nick> [password]` can be used to set or remove NickServ password. `services identify` identifies the bot to NickServ with the current nick.
+
+==== Deleting a network ====
+
+=== Channels ===
+
+NOTE: Commands in this section (such as adding/removing channels) work in the current network, eg. the one you are messaging the bot in.
+
+==== Adding a new channel ====
+
+A new channel is added by messaging the bot in the same network with `join <channel> [key]` command.
+
+==== Removing a channel ====
+
+`part [channel] [reason]`
+
+==== Modifying channel settings ====
+==== Setting the key ====
+==== Setting the limit ====
+==== Maintaining ban list ====
+==== Maintaining ignore list ====
+==== Forcing channel modes ====
+==== Listing channel nicks ====
+==== Listing channels ====
+==== Channel information ====
+==== Adverts ====
+==== Topic operations ====
+==== Logs ====
+==== Auto-ops & voices ====
+
+=== Users ===
+
+==== Adding a new user ====
+==== Setting user hostmasks ====
+==== Listing users ====
+==== Listing hostmasks ====
+==== Deleting users ====
+
+=== General bot maintenance ===
+
+==== Setting nickname & alternative nick ====
+==== Setting ident ====
+==== Setting ircname/realname ====
+==== Setting command prefix ====
+==== Listing and searching settings ====
+
+=== Sockpuppetry ===
+
+==== Tell ====
+==== Raw server commands ====
 
