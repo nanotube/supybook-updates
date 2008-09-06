@@ -6,8 +6,8 @@ Heikki Hokkanen <hoxu@users.sf.net>
 
 === Conventions used in this document ===
 
-`command`::
-	A command
+`command <name> [value]`::
+	A command that takes `name` as a required parameter and `value` as an optional parameter.
 
 [green]#Plugin#::
 	A plugin name
@@ -62,7 +62,7 @@ chat.freenode.net:6667
 
 ==== Services: NickServ ====
 
-`services password <nick> [password]` can be used to set or remove NickServ password. `services identify` identifies the bot to NickServ with the current nick.
+`services password <nick> [password]` can be used to set or remove NickServ password. `services identify` identifies the bot to NickServ with the current nick. You don't need to give this command after the bot has been set up; it will identify when connecting to the network automatically.
 
 ==== Deleting a network ====
 
@@ -168,7 +168,11 @@ Auto-opping is provided by the [green]#AutoMode# plugin.
 
 Related plugins: [green]#Users#.
 
-TODO: general info about globality of users, how bot recognizes them etc. Also note that if users knowing each others' names is an issue, they should come up with a different alias (user changename etc).
+Supybot users are global: they are visible across networks. This means the same username/password and hostmasks will work in all networks the bot is on.
+
+Users are recognized either by matching hostmasks, or after manually identifying to the bot. In secure mode, the user must both match a hostmask and identify to the bot (`uset set secure [password] <True|False>`).
+
+NOTE: If users knowing each others' nicks is an issue, they could come up with different aliases when registering to the bot. The bot username does not have to match the nick of the user.
 
 ==== Adding a new user ====
 
@@ -240,3 +244,8 @@ TODO: config search nick & config search prefix contain related stuff.
 
 `config <name> <value>` - set config value for name.
 
+=== Owner commands ===
+
+`owner announce <text>` - send `text` to all channels the bot is on.
+
+`owner ircquote <raw>` - send `raw` as-is to the server. You need to know your way around http://www.faqs.org/rfcs/rfc1459.html[RFC1459] pretty well to use this.
