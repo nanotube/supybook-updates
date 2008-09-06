@@ -77,7 +77,17 @@ chat.freenode.net:6667
 
 ==== Services: NickServ ====
 
-`services password <nick> [password]` can be used to set or remove NickServ password. `services identify` identifies the bot to NickServ with the current nick. You don't need to give this command after the bot has been set up; it will identify when connecting to the network automatically.
+`config plugins.Services.noJoinsUntilIdentified True`::
+	Settings this is useful on Freenode and other networks who change the user mask after identifying to NickServ.
+
+`config plugins.Services.NickServ NickServ`::
+	Tell the bot what name NickServ can be found under.
+
+`services password <nick> [password]`::
+	Can be used to set or remove NickServ password.
+	
+`services identify`::
+	Identifies the bot to NickServ with the current nick. You don't need to give this command after the bot has been set up; it will identify when connecting to the network automatically.
 
 ==== Deleting a network ====
 
