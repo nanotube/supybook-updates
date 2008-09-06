@@ -9,6 +9,9 @@ Heikki Hokkanen <hoxu@users.sf.net>
 `command <name> [value]`::
 	A command that takes `name` as a required parameter and `value` as an optional parameter.
 
+`command <nick...>`::
+	A command that takes one or more parameters.
+
 [green]#Plugin#::
 	A plugin name
 
@@ -106,17 +109,43 @@ You can list channels in another network with `config networks.<network>.channel
 
 ==== Channel commands ====
 
-TODO: kban, op, voice, alert, cycle, etc.
+Channel ops can use the following commands to control the channel via the bot, assuming it is opped.
 
-`channel moderate [channel]` - set +m
+`op [channel] [nick...]`::
+	Ops the given nicks (or you if none) on the channel.
 
-`channel unmoderate [channel]` - set -m
+`deop [channel] [nick...]`::
+	Ditto, but deops.
 
-`channel mode [channel] <mode> [params]` - set channel mode
+`voice [channel] [nick...]`::
+	Voices the given nicks (or you if none) on the channel.
 
-`topic lock [channel]` - +t
+`devoice [channel] [nick...]`::
+	Ditto, but devoices.
 
-`topic unlock [channel]` - -t
+`kban [channel] [--{exact,nick,user,host}] <nick> [seconds] [reason]`::
+	Bans and kicks the given nick from the channel. If `seconds` is specified and is not 0, the ban will expire after that time.
+
+`mode [channel] <mode> [params]`::
+	Set channel mode. This can be used to change any channel modes, making the commands below redundant aliases.
+
+`moderate [channel]`::
+	Set +m. This is not enforced by the bot, so any channel op can remove it.
+
+`unmoderate [channel]`::
+	Set -m.
+
+`topic lock [channel]`::
+	Set +t. Not enforced, so any channel op can remove it.
+
+`topic unlock [channel]`::
+	Set -t.
+
+`alert [channel] <text>`::
+	Sends `text` to all users on the channel with op capability.
+
+`cycle [channel]`::
+	Make the bot part and join the channel. Mostly useful to test whether auto-ops from other bots/users work for the bot.
 
 ==== Maintaining the ban list ====
 
