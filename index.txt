@@ -15,6 +15,10 @@ Heikki Hokkanen <hoxu@users.sf.net>
 [green]#Plugin#::
 	A plugin name
 
+=== How to give feedback ===
+
+If you spot an error, have suggestions or just want to tell me how much you love/hate the document, send e-mail to mailto:hoxu@users.sf.net[]. Prefix the Subject with `[supybook]`.
+
 == Getting started ==
 
 === Identifying to the bot ===
