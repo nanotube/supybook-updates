@@ -21,6 +21,18 @@ Heikki Hokkanen <hoxu@users.sf.net>
 
 After running supybot-wizard and starting the bot, connect to the same IRC network it is on, and /query it. You can identify with the `identify <name> <password>` command. You can check the bot's idea of who you are with the `whoami` command.
 
+== Understanding supybot's peculiarities ==
+
+Supybot has a couple of features that sets it apart from more traditional bots. More specifically, nested commands, plugin framework, and capabilities. This section covers some basic information about Supybot. Feel free to skip it, but come back later if you run into something you don't understand.
+
+=== Nested commands ===
+
+Supybot allows nested commands, in other words, you can pass the result of a command to another command as a parameter. What does this allow then, though, apart from the obvious bragging rights? For example, if you want to restore a configuration entry to the default value, you can type:
+
+`config reply.withNickPrefix [config default reply.withNickPrefix]`
+
+Obviously, that wasn't very neat. They could've included a `config reset <key>` command instead, for example. But I'm sure you can figure out *something* useful to do with this.
+
 == Administrative tasks ==
 
 === Networks ===
