@@ -149,13 +149,16 @@ Channel ops can use the following commands to control the channel via the bot, a
 
 ==== Maintaining the ban list ====
 
-`channel ban add [channel] <nick|hostmask> [expires]`
+`ban add [channel] <nick|hostmask> [expires]`::
+	Add ban for given nick or hostmask on the channel. If nick is given, the full hostmask is banned. `expires` when gives, expires the ban after so many seconds.
 
-`channel ban list [channel]`
+`ban list [channel]`::
+	List bans with their expire times.
 
-`channel ban remove [channel] <hostmask>`
+`ban remove [channel] <hostmask>`::
+	Removes the ban on given `hostmask`.
 
-NOTE: Users matching the ban list are not automatically kicked off the channel. See the `kban` command to kick and ban a user. (TODO: check)
+NOTE: Users matching the ban list are not automatically kicked off the channel. See the `kban` command in the previous section to kick and ban a user.
 
 ==== Maintaining the ignore list ====
 
