@@ -17,9 +17,15 @@ Related plugins: [green]#Network, Services#.
 
 ==== Adding a network ====
 
+`network connect <network> [<host[:port]>]` ?
+
 ==== Reconnecting ====
 
 `reconnect [network] [quit message]`.
+
+==== Disconnecting ====
+
+`network disconnect [network] [message]`
 
 ==== Listing networks ====
 
@@ -31,6 +37,10 @@ freenode: wolfe.freenode.net and ircnet: irc.elisa.fi
 ----
 
 ==== Adding a server ====
+
+Once you've added a network with the initial server, you can add more servers:
+
+`config networks.<network>.servers [config networks.<network>.servers] server:6667`
 
 ==== Listing network servers ====
 
@@ -47,11 +57,15 @@ chat.freenode.net:6667
 
 ==== Deleting a network ====
 
+TODO
+
 === Channels ===
 
 Related plugins: [green]#Channel#.
 
 NOTE: Commands in this section (such as adding/removing channels) work in the current network, eg. the one you are messaging the bot in. The commands also accept a `[channel]` parameter which is needed only when the command is written in private.
+
+NOTE: If you want to /msg the bot in one network, while having the command apply in another network, you can use the `network command <network> <command> [params]` command. The reply comes in the other network though (TODO: confirm).
 
 ==== Adding a new channel ====
 
@@ -77,6 +91,16 @@ A new channel is added by messaging the bot in the same network with `join <chan
 
 TODO: kban, op, voice, alert, cycle, etc.
 
+`channel moderate [channel]` - set +m
+
+`channel unmoderate [channel]` - set -m
+
+`channel mode [channel] <mode> [params]` - set channel mode
+
+`topic lock [channel]` - +t
+
+`topic unlock [channel]` - -t
+
 ==== Maintaining the ban list ====
 
 `channel ban add [channel] <nick|hostmask> [expires]`
@@ -97,7 +121,9 @@ NOTE: Users matching the ban list are not automatically kicked off the channel. 
 
 NOTE: There is also a global ignore list.
 
-==== Forcing channel modes ====
+==== Enforcing channel modes ====
+
+TODO: Is there a plugin for this?
 
 ==== Listing channel nicks ====
 
@@ -111,13 +137,19 @@ NOTE: This only works in private, to prevent knowledge of top secret channels fr
 
 You can list channels in another network with `config networks.<network>.channels`.
 
-==== Other channel information ====
-
-==== Adverts ====
-
 ==== Topic operations ====
 
+Related plugins: [green]#Topic#.
+
+Supybot allows elaborate manipulation of the channel topic.
+
+http://supybot.com/documentation/plugins/topic
+
 ==== Logs ====
+
+Logging of channels is provided by the [green]#ChannelLogger# plugin. Various channel-specific configuration items are provided, see `config list plugins.ChannelLogger`.
+
+By default logs will go into logs/ChannelLogger/<network>/<channel>/<channel>.log and will be rotated when the default "%d-%a-%Y" (eg. 06-Sat-2008) timestamp rotates.
 
 ==== Auto-ops & voices ====
 
@@ -153,11 +185,17 @@ NOTE: There is no way to add network-specific hostmasks (TODO: confirm).
 
 ==== Changing password ====
 
+`user set password <user> <old password> <new password>`.
+
 ==== Renaming a user ====
 
 `user changename <name> <new name> [password]`
 
+Users can change their name themselves.
+
 ==== Manipulating user capabilities ====
+
+TODO
 
 === General bot maintenance ===
 
@@ -171,11 +209,15 @@ Related plugins: [green]#Admin, Config#.
 
 `config nick.alternates` - space-separated list of alternate nicks, %s refers to nick.
 
+TODO: different nick in different networks?
+
 ==== Setting ident ====
 
 `config ident <newident>`
 
 ==== Setting ircname/realname ====
+
+TODO: The default ircname of the bot is "Supybot <version>". I'm not aware of any way to change this.
 
 ==== Setting command prefix / controlling when the bot replies ====
 
@@ -188,9 +230,4 @@ TODO: config search nick & config search prefix contain related stuff.
 `config <name>` - show config value for name.
 
 `config <name> <value>` - set config value for name.
-
-=== Sockpuppetry ===
-
-==== Tell ====
-==== Raw server commands ====
 
