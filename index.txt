@@ -91,7 +91,7 @@ You can make Supybot identify itself to the network NickServ after it has connec
 `services identify`::
 	Identifies the bot to NickServ with the current nick. You don't need to give this command after the bot has been set up; it will identify when connecting to the network automatically.
 
-=== Services: ChanServ ===
+==== Services: ChanServ ====
 
 You can make Supybot request op after joining a channel on a network with ChanServ.
 
@@ -225,7 +225,7 @@ Supybot allows elaborate manipulation of the channel topic.
 
 http://supybot.com/documentation/plugins/topic
 
-==== Logs ====
+==== Logging ====
 
 Logging of channels is provided by the [green]#ChannelLogger# plugin. Various channel-specific configuration items are provided, see `config list plugins.ChannelLogger`.
 
@@ -234,6 +234,22 @@ By default logs will go into logs/ChannelLogger/<network>/<channel>/<channel>.lo
 ==== Auto-ops & voices ====
 
 Auto-opping is provided by the [green]#AutoMode# plugin.
+
+==== Seen ====
+
+The [green]#Seen# module keeps track of last channel/nick/user activity. Most typical use is asking the bot when a given user was last seen chatting on a channel.
+
+`seen any [channel] [--user <user>] [nick]`::
+	Lists any activity given `nick` or `user` was doing on the channel. If no `nick` or `user` is given, returns the last activity on the channel, regardless of who it was from.
+
+`seen last [channel]`:
+	Last line said on the channel.
+
+`seen [channel] <nick>`::
+	Last time a `nick` was seen on a channel and what it said.
+
+`seen user [channel] <user>`:
+	Ditto, except use a user name, disregarding what nick the said user had.
 
 === Users ===
 
