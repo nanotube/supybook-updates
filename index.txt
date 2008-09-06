@@ -77,6 +77,8 @@ chat.freenode.net:6667
 
 ==== Services: NickServ ====
 
+You can make Supybot identify itself to the network NickServ after it has connected.
+
 `config plugins.Services.noJoinsUntilIdentified True`::
 	Settings this is useful on Freenode and other networks who change the user mask after identifying to NickServ.
 
@@ -88,6 +90,21 @@ chat.freenode.net:6667
 	
 `services identify`::
 	Identifies the bot to NickServ with the current nick. You don't need to give this command after the bot has been set up; it will identify when connecting to the network automatically.
+
+=== Services: ChanServ ===
+
+You can make Supybot request op after joining a channel on a network with ChanServ.
+
+`config plugins.Services.ChanServ ChanServ`::
+	Tell the bot what name ChanServ can be found under.
+
+`config plugins.Services.ChanServ.op <on|off>`::
+	Set the default for all channels. This will be used unless a channel-specific config overrides it.
+
+`config channel [channel] plugins.services.ChanServ.op <on|off>`::
+	Set to request op on the given `channel`.
+
+Voice and half-op (on networks supporting it) can be used similarly.
 
 ==== Deleting a network ====
 
