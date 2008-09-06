@@ -2,12 +2,21 @@ Supybook
 ========
 Heikki Hokkanen <hoxu@users.sf.net>
 
+== Preface ==
+
+=== Conventions used in this document ===
+
+`command`::
+	A command
+
+[green]#Plugin#::
+	A plugin name
+
 == Getting started ==
 
 === Identifying to the bot ===
 
 After running supybot-wizard and starting the bot, connect to the same IRC network it is on, and /query it. You can identify with the `identify <name> <password>` command. You can check the bot's idea of who you are with the `whoami` command.
-
 
 == Administrative tasks ==
 
@@ -36,7 +45,7 @@ Related plugins: [green]#Network, Services#.
 freenode: wolfe.freenode.net and ircnet: irc.elisa.fi
 ----
 
-==== Adding a server ====
+==== Adding more servers ====
 
 Once you've added a network with the initial server, you can add more servers:
 
@@ -70,6 +79,14 @@ NOTE: If you want to /msg the bot in one network, while having the command apply
 ==== Adding a new channel ====
 
 A new channel is added by messaging the bot in the same network with `join <channel> [key]` command.
+
+==== Listing channels ====
+
+`channels`
+
+NOTE: This only works in private, to prevent knowledge of top secret channels from falling to wrong hands.
+
+You can list channels in another network with `config networks.<network>.channels`.
 
 ==== Removing a channel ====
 
@@ -128,14 +145,6 @@ TODO: Is there a plugin for this?
 ==== Listing channel nicks ====
 
 `channel nicks [channel]`
-
-==== Listing channels ====
-
-`channels`
-
-NOTE: This only works in private, to prevent knowledge of top secret channels from falling to wrong hands.
-
-You can list channels in another network with `config networks.<network>.channels`.
 
 ==== Topic operations ====
 
