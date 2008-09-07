@@ -39,7 +39,7 @@ Obviously, that wasn't very neat. They could've included a `config reset <key>` 
 
 === Plugins ===
 
-Pretty much everything in Supybot is a plugin. All commands you use belong to a plugin. If two plugins provide the same command, then you need to prefix the command with the plugin name. For example, the `ignore list` command yields the following output:
+Pretty much everything in Supybot is a plugin. Most commands you use belong to a plugin. If two plugins provide the same command, then you need to prefix the command with the plugin name. For example, the `ignore list` command yields the following output:
 
 .output
 ----
@@ -47,11 +47,26 @@ Error: The command "ignore list" is available in the Admin and Channel plugins.
 Please specify the plugin whose command you wish to call by using its name as a command before "ignore list".
 ----
 
-Thus, you need to either use `admin ignore list` or `channel ignore list` command. That is, unless you define which plugin is the default one using the `defaultplugin [--remove] <command> [plugin]` command provided in the [green]#Owner# plugin.
+Thus, you need to either use `admin ignore list` or `channel ignore list` command. That is, unless you define which plugin is the default one using the `defaultplugin [\--remove] <command> [plugin]` command provided in the [green]#Owner# plugin.
 
 The `list` command ([green]#Plugin#) can be used to list loaded plugins. You can prevent some plugins from showing in the list with the command:
 
 `config plugins.<plugin>.public False`
+
+`list`::
+	List currently loaded plugins, excluding the ones set non-public.
+
+`list \--private`::
+	List loaded plugins that are set to non-public.
+
+`list <plugin>`::
+	List commands provided by the given plugin.
+
+`load [\--deprecated] <plugin>`::
+	Load a plugin. Supybot looks for plugins in directories listed in `config conf.supybot.directories.plugins`.
+
+`unload <plugin>`::
+	Unloads a plugin. The [green]#Owner# plugin cannot be unloaded.
 
 == Administrative tasks ==
 
@@ -182,7 +197,7 @@ Channel ops can use the following commands to control the channel via the bot, a
 `devoice [channel] [nick...]`::
 	Ditto, but devoices.
 
-`kban [channel] [--{exact,nick,user,host}] <nick> [seconds] [reason]`::
+`kban [channel] [\--{exact,nick,user,host}] <nick> [seconds] [reason]`::
 	Bans and kicks the given nick from the channel. If `seconds` is specified and is not 0, the ban will expire after that time.
 
 `mode [channel] <mode> [params]`::
@@ -259,7 +274,7 @@ Auto-opping is provided by the [green]#AutoMode# plugin.
 
 The [green]#Seen# plugin keeps track of last channel/nick/user activity. Most typical use is asking the bot when a given user was last seen chatting on a channel.
 
-`seen any [channel] [--user <user>] [nick]`::
+`seen any [channel] [\--user <user>] [nick]`::
 	Lists any activity given `nick` or `user` was doing on the channel. If no `nick` or `user` is given, returns the last activity on the channel, regardless of who it was from.
 
 `seen last [channel]`:
