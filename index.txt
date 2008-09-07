@@ -266,6 +266,18 @@ Logging of channels is provided by the [green]#ChannelLogger# plugin. Various ch
 
 By default logs will go into logs/ChannelLogger/<network>/<channel>/<channel>.log and will be rotated when the default "%d-%a-%Y" (eg. 06-Sat-2008) timestamp rotates.
 
+===== Searching the log =====
+
+The logs of [green]#ChannelLogger# cannot be searched online. However, other plugins provide some searching functionality.
+
+`url last [channel] [\--{from,with,without,near,proto} value] [\--nolimit]`::
+	Find last URL (or all with `\--nolimit`) matching given criteria. From matches nick, with(out) part of the URL, near rest of the line where the URL was, and proto matches the protocol (https, ftp, etc). In case of multiple URLs, the newest is listed first. Multiple criterias can be given.
+
+	NOTE: This command lists only the URLs, not nick or what message the URLs were part of. No date is shown either.
+
+`last [\--from,in,on,with,without,regexp} value] [\--nolimit]`::
+	Find messages matching given criteria. From matches nick, in matches channel, on matches network, with(out) matches part of the message, regexp matches messages that are included by the regular expression. Also see `config protocols.irc.maxHistoryLength`.
+
 ==== Auto-ops & voices ====
 
 Auto-opping is provided by the [green]#AutoMode# plugin.
