@@ -350,10 +350,6 @@ TODO: different nick in different networks?
 
 `config ident <newident>`
 
-==== Setting ircname/realname ====
-
-TODO: The default ircname of the bot is "Supybot <version>". I'm not aware of any way to change this.
-
 ==== Setting command prefix / controlling when the bot replies ====
 
 TODO: config search nick & config search prefix contain related stuff.
@@ -371,3 +367,17 @@ TODO: config search nick & config search prefix contain related stuff.
 `owner announce <text>` - send `text` to all channels the bot is on.
 
 `owner ircquote <raw>` - send `raw` as-is to the server. You need to know your way around http://www.faqs.org/rfcs/rfc1459.html[RFC1459] pretty well to use this.
+
+== Caveats ==
+
+This is a list of issues I have not yet figured out how to do, or there simply isn't a way.
+
+- No way to change the default ircname/realname of the bot from "Supybot <version>"
+- How to enforce channel modes (eg. force +ns-t for example)
+- How to delete config items
+- How to delete channels / networks
+- Ban add does not seem to work on Freenode
+- No global ban list
+- Capabilities are not network/channel -specific, but channel-specific. If channel by same name exists in two networks, the users have same capabilities on both
+
+
