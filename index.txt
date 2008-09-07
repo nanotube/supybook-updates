@@ -383,6 +383,33 @@ TODO: config search nick & config search prefix contain related stuff.
 
 `owner ircquote <raw>` - send `raw` as-is to the server. You need to know your way around http://www.faqs.org/rfcs/rfc1459.html[RFC1459] pretty well to use this.
 
+== User commands ==
+
+=== Useful plugins ===
+
+==== Dict ====
+
+[green]#Dict# provides dictionary functionality using dict.org. You can also use a local dictd server.
+
+`dict [dictionary] <word>`::
+	Show dictionary entry for `word`, from `dictionary` if provided. If `plugins.Dict.default` is set, use the specified dictionary instead of all.
+
+`dictionaries`::
+	List dictionaries available on the used server.
+
+`dict random`::
+	Show a random dictionary from available dictionaries.
+
+`config plugins.Dict.server [server]`::
+	The dictd server to be used, default is dict.org.
+
+`config plugins.Dict.default [dictionary]`::
+	Channel-specific default dictionary for `dict` command. `*` means to use all dictionaries. `wn` is a good default if english words are mostly looked up.
+
+=== Games ===
+
+Plugins: [green]#Games, Nickometer, Quote, QuoteGrabs#.
+
 == Caveats ==
 
 This is a list of issues I have not yet figured out how to do, or there simply isn't a way.
