@@ -25,6 +25,12 @@ If you spot an error, have suggestions or just want to tell me how much you love
 
 After running supybot-wizard and starting the bot, connect to the same IRC network it is on, and /query it. You can identify with the `identify <name> <password>` command. You can check the bot's idea of who you are with the `whoami` command.
 
+=== Accessing the online help ===
+
+Most commands on the bot have a short online help available. You can use `list` to list loaded plugins, and `list <plugin>` to list commands in those plugins. `help [plugin] <command>` can be used to access the command help. Use `more` to read long messages from the bot.
+
+Help for configuration items can be accessed with the `config help <key>` command.
+
 == Understanding supybot's peculiarities ==
 
 Supybot has a couple of features that sets it apart from more traditional bots. More specifically, nested commands, plugin framework (even the basic functionality is implemented using plugins), and capabilities. This section covers some basic information about Supybot. Feel free to skip it, but come back later if you run into something you don't understand.
