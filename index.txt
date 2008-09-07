@@ -27,7 +27,7 @@ After running supybot-wizard and starting the bot, connect to the same IRC netwo
 
 == Understanding supybot's peculiarities ==
 
-Supybot has a couple of features that sets it apart from more traditional bots. More specifically, nested commands, plugin framework, and capabilities. This section covers some basic information about Supybot. Feel free to skip it, but come back later if you run into something you don't understand.
+Supybot has a couple of features that sets it apart from more traditional bots. More specifically, nested commands, plugin framework (even the basic functionality is implemented using plugins), and capabilities. This section covers some basic information about Supybot. Feel free to skip it, but come back later if you run into something you don't understand.
 
 === Nested commands ===
 
@@ -36,6 +36,22 @@ Supybot allows nested commands, in other words, you can pass the result of a com
 `config reply.withNickPrefix [config default reply.withNickPrefix]`
 
 Obviously, that wasn't very neat. They could've included a `config reset <key>` command instead, for example. But I'm sure you can figure out *something* useful to do with this.
+
+=== Plugins ===
+
+Pretty much everything in Supybot is a plugin. All commands you use belong to a plugin. If two plugins provide the same command, then you need to prefix the command with the plugin name. For example, the `ignore list` command yields the following output:
+
+.output
+----
+Error: The command "ignore list" is available in the Admin and Channel plugins.
+Please specify the plugin whose command you wish to call by using its name as a command before "ignore list".
+----
+
+Thus, you need to either use `admin ignore list` or `channel ignore list` command. That is, unless you define which plugin is the default one using the `defaultplugin [--remove] <command> [plugin]` command provided in the [green]#Owner# plugin.
+
+The `list` command ([green]#Plugin#) can be used to list loaded plugins. You can prevent some plugins from showing in the list with the command:
+
+`config plugins.<plugin>.public False`
 
 == Administrative tasks ==
 
@@ -241,7 +257,7 @@ Auto-opping is provided by the [green]#AutoMode# plugin.
 
 ==== Seen ====
 
-The [green]#Seen# module keeps track of last channel/nick/user activity. Most typical use is asking the bot when a given user was last seen chatting on a channel.
+The [green]#Seen# plugin keeps track of last channel/nick/user activity. Most typical use is asking the bot when a given user was last seen chatting on a channel.
 
 `seen any [channel] [--user <user>] [nick]`::
 	Lists any activity given `nick` or `user` was doing on the channel. If no `nick` or `user` is given, returns the last activity on the channel, regardless of who it was from.
