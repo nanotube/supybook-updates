@@ -264,7 +264,7 @@ http://supybot.com/documentation/plugins/topic
 
 Logging of channels is provided by the [green]#ChannelLogger# plugin. Various channel-specific configuration items are provided, see `config list plugins.ChannelLogger`.
 
-By default logs will go into logs/ChannelLogger/<network>/<channel>/<channel>.log and will be rotated when the default "%d-%a-%Y" (eg. 06-Sat-2008) timestamp rotates.
+By default logs will go into logs/ChannelLogger/<network>/<channel>/<channel>.log and will be rotated when the default "%d-%a-%Y" (eg. 06-Sat-2008) timestamp rotates. See http://docs.python.org/lib/module-time.html[the python documentation for strftime] for the formatting characters.
 
 ===== Searching the log =====
 
