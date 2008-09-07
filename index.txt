@@ -152,17 +152,13 @@ You can make Supybot request op after joining a channel on a network with ChanSe
 
 Voice and half-op (on networks supporting it) can be used similarly.
 
-==== Deleting a network ====
-
-TODO
-
 === Channels ===
 
 Related plugins: [green]#Channel#.
 
 NOTE: Commands in this section (such as adding/removing channels) work in the current network, eg. the one you are messaging the bot in. The commands also accept a `[channel]` parameter which is needed only when the command is written in private.
 
-NOTE: If you want to /msg the bot in one network, while having the command apply in another network, you can use the `network command <network> <command> [params]` command. The reply comes in the other network though (TODO: confirm).
+NOTE: If you want to /msg the bot in one network, while having the command apply in another network, you can use the `network command <network> <command> [params]` command. The reply comes in the other network if you are there as well.
 
 ==== Adding a new channel ====
 
@@ -255,10 +251,6 @@ NOTE: Users matching the ban list are not automatically kicked off the channel. 
 
 NOTE: There is also a global ignore list.
 
-==== Enforcing channel modes ====
-
-TODO: Is there a plugin for this?
-
 ==== Listing channel nicks ====
 
 `channel nicks [channel]`
@@ -331,7 +323,7 @@ NOTE: If users knowing each others' nicks is an issue, they could come up with d
 
 `user hostmask remove <name> <hostmask> [password]`
 
-NOTE: There is no way to add network-specific hostmasks (TODO: confirm).
+NOTE: There is no way to add network-specific hostmasks.
 
 ==== Listing users ====
 
@@ -401,6 +393,9 @@ This is a list of issues I have not yet figured out how to do, or there simply i
 - How to delete channels / networks
 - Ban add does not seem to work on Freenode
 - No global ban list
-- Capabilities are not network/channel -specific, but channel-specific. If channel by same name exists in two networks, the users have same capabilities on both
+- No way to delete a network
+- Incomplete multi-network support
+	* Capabilities are not network/channel -specific, but channel-specific. If channel by same name exists in two networks, the users have same capabilities on both
+	* No way to add network-specific hostmasks
 
 
