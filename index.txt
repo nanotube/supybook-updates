@@ -19,6 +19,10 @@ Heikki Hokkanen <hoxu@users.sf.net>
 
 If you spot an error, have suggestions or just want to tell me how much you love/hate the document, send e-mail to mailto:hoxu@users.sf.net[]. Prefix the Subject with `[supybook]`.
 
+=== This document is Free ===
+
+This document is Free (TM) as defined by the http://www.fsf.org/[Free Software Foundation], more specifically, this document is available under the terms of http://www.gnu.org/licenses/gpl-3.0.txt[GNU General Public License version 3 (GPLv3)].
+
 == Getting started ==
 
 === Identifying to the bot ===
