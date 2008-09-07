@@ -1,4 +1,4 @@
-PARAMS=-a toc -a toclevels=3 -a date=$(shell date +%Y-%m-%d) -d book
+PARAMS=-a toc -a toclevels=3 -a date=$(shell date +%Y-%m-%d) -a numbered -d book
 
 all: index.html
 
