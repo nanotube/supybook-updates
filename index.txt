@@ -5,6 +5,14 @@ Heikki Hokkanen <hoxu@users.sf.net>
 
 == Preface ==
 
+=== Motivation behind this document ===
+
+Some time ago I started needing a bot for various purposes. The bot would have to be able to take care of auto-opping and similar "traditional" channel duties. This made me think of http://oer.equnet.org/[Oer], an old but very nice bot. However, I also wanted to have factoid functionality similar to blootbot/infobot, without having to run multiple bots. That was when I arrived at Supybot once again. This time I decided to give it a closer look.
+
+My experience of the documentation was lacking though. I longed for something similar to http://oer.equnet.org/um.php[Oer's User Manual] that provides a quick references for basic administrator tasks and so forth. Alas, I could not find such document.
+
+I figured I could as well wrap up such a handbook while learning to use the bot myself. Hopefully someone finds reading this document as useful as writing it was.
+
 === Conventions used in this document ===
 
 `command <name> [value]`::
@@ -16,13 +24,13 @@ Heikki Hokkanen <hoxu@users.sf.net>
 [green]#Plugin#::
 	A plugin name
 
-=== How to give feedback ===
-
-If you spot an error, have suggestions or just want to tell me how much you love/hate the document, send e-mail to mailto:hoxu@users.sf.net[]. Prefix the Subject with `[supybook]`.
-
 === This document is Free ===
 
 This document is Free (TM) as defined by the http://www.fsf.org/[Free Software Foundation], more specifically, this document is available under the terms of http://www.gnu.org/licenses/gpl-3.0.txt[GNU General Public License version 3 (GPLv3)].
+
+=== How to give feedback ===
+
+If you spot an error, have suggestions or just want to tell me how much you love/hate the document, send e-mail to mailto:hoxu@users.sf.net[]. Prefix the Subject with `[supybook]`.
 
 == Getting started ==
 
