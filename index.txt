@@ -79,6 +79,38 @@ The `list` command ([green]#Plugin#) can be used to list loaded plugins. You can
 `unload <plugin>`::
 	Unloads a plugin. The [green]#Owner# plugin cannot be unloaded.
 
+=== Configuration ===
+
+Most of Supybot configuration is done online using the [green]#Config# plugin. This excludes things such as granting the owner capability (must be done by modifying the files).
+
+There are two types of configuration items: global and channel-specific. The latter are actually no different from the global ones, except that they can be set for channels as well. This means you can have a global default which is overridden for specific channels.
+
+Configuration items are hierarchical. The "root" item is `supybot`, which can be omitted. Configs for plugins live under their own key, `supybot.plugins`, or shortly, `plugins`.
+
+`config <name> [value]`::
+	Get the current value of `name`, or set it to `value` if provided.
+
+`config channel [channel] <name> [value]`::
+	Ditto, but for channel configs.
+
+`config default <name>`::
+	Get the default value of `name`. This does not change the value. No, there is no command to reset an item to default value. You need to use `config <name> [config default <name>]` for that.
+
+`config export <filename>`::
+	Export non-confidential parts of configuration to a file for debugging purposes.
+
+`config help <name>`::
+	Show help for a configuration item.
+
+`config list <group>`::
+	List configuration items in `group`. Subgroups are prefixed with '@', channel-specific items with '#'.
+
+`config reload`::
+	Reloads configuration. Mostly useful if you've had to modify the files by hand.
+
+`config search <word>`::
+	Show configuration items matching `word`.
+
 == Administrative tasks ==
 
 === Networks ===
