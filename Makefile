@@ -1,12 +1,14 @@
+PARAMS=-a toc -a toclevels=3 -a date=$(shell date +%Y-%m-%d) -d book
+
 all: index.html
 
 pdf: index.pdf
 
 %.html: %.txt
-	asciidoc -a toc -a toclevels=3 -d book $<
+	asciidoc $(PARAMS) $<
 
 %.pdf: %.txt
-	a2x -a toc -a toclevels=3 -d book -f pdf $<
+	a2x $(PARAMS) -f pdf $<
 
 clean:
 	@$(RM) index.html
