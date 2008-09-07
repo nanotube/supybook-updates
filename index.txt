@@ -482,9 +482,9 @@ Then we test it:
 
 ----
 <user> cmdtest someone
-But it doesn't work.
 ----
 
+But it doesn't work.
 However, the factoid works:
 
 ----
