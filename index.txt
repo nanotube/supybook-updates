@@ -465,4 +465,49 @@ This is a list of issues I have not yet figured out how to do, or there simply i
 	* Capabilities are not network/channel -specific, but channel-specific. If channel by same name exists in two networks, the users have same capabilities on both
 	* No way to add network-specific hostmasks
 
+== Tips ==
+
+=== How to emulate blootbot CMDs using MoobotFactoids ===
+
+[,yellow]#Thanks to Tobias Rosenqvist for the tip!#
+
+We try to make a command factoid, like we are used to with blootbot:
+
+----
+<user> cmdtest is <action> gives $1 "(an apple|a pear)"
+<bot> Ok.
+----
+
+Then we test it:
+
+----
+<user> cmdtest someone
+But it doesn't work.
+----
+
+However, the factoid works:
+
+----
+<user> cmdtest
+  * bot gives $1 an apple
+----
+
+The Moobotfactoids plugin in supybot doesn't handle arguments, (yet)
+unfortunately, so you need to do it another way.
+Use the Moobotfactoids to do the random part(s):
+
+----
+<user> fruits is <reply> "(an apple|an orange|a banana|a pear)"
+<bot> Ok.
+----
+
+Then use an alias to do the command, with arguments (the "action" command
+is found in the Reply plugin), here you also see a use of a nested command:
+
+----
+<user> alias add givefruit action gives [fruits] to $1
+<bot> Ok.
+<user> givefruit someone
+ * bot gives a pear to someone
+----
 
