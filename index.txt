@@ -403,7 +403,13 @@ TODO: different nick in different networks?
 
 ==== Setting ident ====
 
-`config ident <newident>`
+`config ident <newident>`::
+	Sets the bot's ident (`nick!ident@host`).
+
+==== Setting ircname ====
+
+`config user [ircname]`::
+	Sets the bot's ircname/realname to `ircname`. If left empty, defaults to 'Supybot 0.83.3' for example.
 
 ==== Setting command prefix / controlling when the bot replies ====
 
@@ -454,7 +460,6 @@ Plugins: [green]#Games, Nickometer, Quote, QuoteGrabs#.
 
 This is a list of issues I have not yet figured out how to do, or there simply isn't a way.
 
-- No way to change the default ircname/realname of the bot from "Supybot <version>"
 - How to enforce channel modes (eg. force +ns-t for example)
 - How to delete config items
 - How to delete channels / networks
