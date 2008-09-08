@@ -119,6 +119,30 @@ Configuration items are hierarchical. The "root" item is `supybot`, which can be
 `config search <word>`::
 	Show configuration items matching `word`.
 
+=== Capabilities ===
+
+Many traditional IRC bots manage permissions of users using flags. Some network services in fact, do, too. Each user can have various flags on each channel. The flags can mean auto-op, op, use of !ban command and so forth. On side of those, there are often global user flags that entitle the user to full access, global auto-op, etc. Some bots also support channel flags that determine what bot functionality is available on the channel.
+
+Supybot does not have any flags. Instead, the permissions are managed using 'capabilities'. There are two kinds of capabilities: `user capabilities` and `channel capabilities`.
+
+'User capabilities' are checked first when a user tries to run a command. If the user has an 'anticapability' for the command (eg. `-command`, `-Plugin.command`) or the Plugin (`-Plugin`), it won't be run.
+
+Next, if the command was run on the channel, the 'channel capabilities' are checked. The logic is same as above, but the checked capabilities are prefixed with `#channel,`, for example `#channel,-Plugin.command`.
+
+There are some special capabilities recognized by Supybot:
+
+`owner`::
+	For bot owners: the people who have "physical" access to the bot and its files. This cannot be granted online; the 'conf/users.conf' file must be edited by hand followed by `reload`.
+
+`admin`::
+	For bot administrators. Users with this capability can manage global bot properties, make the bot join new channels and so forth. However, they can't do channel administration which is reserved for ops.
+
+`#channel,op`::
+	Channel ops can execute channel-related commands.
+
+`trusted`::
+	Allow user to run commands that can potentially crash the bot, or cause denial of service on the system it's running on.
+
 == Administrative tasks ==
 
 === Networks ===
