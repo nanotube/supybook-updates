@@ -542,3 +542,40 @@ is found in the Reply plugin), here you also see a use of a nested command:
  * bot gives a pear to someone
 ----
 
+=== Tidier bot replies ===
+
+I don't personally like the default Supybot replies: I hate the nick prefix and the way too verbose 'The operation succeeded.'.
+
+Fortunately there are plenty of settings to configure how Supybot replies. These can be listed with `config reply` and `config replies`.
+
+The `reply` items determine how Supybot acts, and `replies` contains some messages it uses. I prefer `config reply.withNickPrefix False` and `config replies.success OK` myself.
+
+.reply
+*#inPrivate*:: Whether to reply in private to commands given on channel.
+
+*#requireChannelCommandsToBeSentInChannel*:: -
+
+*#showSimpleSyntax*:: Whether to be extra helpful when a user fails syntax of a command.
+
+*#whenNotAddressed*:: Assume everyone wants to talk to the bot, eg. treat all messages as if addressed to the bot. This does not imply `replyWhenNotCommand False` which you should set as well.
+
+*#whenNotCommand*:: Whether to reply when addressed with an invalid command.
+
+*#withNickPrefix*:: Whether to prefix the reply with the nick of the user who gave the command.
+
+*#withNotice*:: Whether to use notices instead of regular messages.
+
+@#mores
+
+@error
+
+@format
+
+@whenAddressedBy
+
+maximumLength
+
+oneToOne
+
+#withNoticeWhenPrivate
+
