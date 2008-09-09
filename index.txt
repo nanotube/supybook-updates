@@ -197,6 +197,8 @@ You can make Supybot identify itself to the network NickServ after it has connec
 
 `services password <nick> [password]`::
 	Can be used to set or remove NickServ password.
+
+	NOTE: Password removal did not work for me on Supybot 0.83.3
 	
 `services identify`::
 	Identifies the bot to NickServ with the current nick. You don't need to give this command after the bot has been set up; it will identify when connecting to the network automatically.
