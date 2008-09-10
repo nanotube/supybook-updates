@@ -498,6 +498,7 @@ This is a list of issues I have not yet figured out how to do, or there simply i
 - Incomplete multi-network support
 	* Capabilities are not network/channel -specific, but channel-specific. If channel by same name exists in two networks, the users have same capabilities on both
 	* No way to add network-specific hostmasks
+- There is no command to reboot the bot; it must be done from the shell
 
 == Tips ==
 
