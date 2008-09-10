@@ -482,6 +482,22 @@ TODO: config search nick & config search prefix contain related stuff.
 `config plugins.Dict.default [dictionary]`::
 	Channel-specific default dictionary for `dict` command. `*` means to use all dictionaries. `wn` is a good default if english words are mostly looked up.
 
+==== Later ====
+
+This is a nick-based replacement for NoteServ and the likes. Simply put, you give the bot a note to deliver to a nick (or wildcard) the next time it sees a matching nick. In other words, this can be used to deliver messages to people who are not registered to the bot. Naturally that is not a very safe method of communicating.
+
+`notes [nick]`::
+	List nicks that have notes queued, or the notes queued for `nick` if given.
+
+`later tell <nick> <text>`::
+	Queues `text` to be sent to first matching `nick` when seen. Nick can contain wildcards, eg. `foo*`.
+
+`config plugins.Later.maximum`::
+	How many messages can be queued per nick at maximum, default is 0 = no limit.
+
+`config plugins.Later.private`::
+	Whether to send notes in private or on the channel where the recipient is seen.
+
 === Games ===
 
 Plugins: [green]#Games, Nickometer, Quote, QuoteGrabs#.
