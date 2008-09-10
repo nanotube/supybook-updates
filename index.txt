@@ -2,6 +2,7 @@ Supybook
 ========
 Heikki Hokkanen <hoxu@users.sf.net>
 {date}
+{revision}
 
 == Preface ==
 

@@ -1,4 +1,9 @@
 PARAMS=-a toc -a toclevels=3 -a date=$(shell date +%Y-%m-%d) -a numbered -d book
+ifdef REVISION
+PARAMS+=-a revision=$(REVISION)
+#else
+#PARAMS+=-a revision=$(shell git describe)
+endif
 
 all: index.html
 
