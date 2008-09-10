@@ -5,6 +5,8 @@ Heikki Hokkanen <hoxu@users.sf.net>
 
 == Preface ==
 
+NOTE: At the time of this writing, Supybot version is 0.83.3. If you are using a newer (or even older) version, keep that in mind.
+
 === Motivation behind this document ===
 
 Some time ago I started needing a bot for various purposes. The bot would have to be able to take care of auto-opping and similar "traditional" channel duties. This made me think of http://oer.equnet.org/[Oer], an old but very nice bot. However, I also wanted to have factoid functionality similar to blootbot/infobot, without having to run multiple bots. That was when I arrived at Supybot once again. This time I decided to give it a closer look.
