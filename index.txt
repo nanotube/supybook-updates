@@ -204,6 +204,8 @@ chat.freenode.net:6667
 
 ==== Services: NickServ ====
 
+WARNING: My pratical experience with [green]#Services# plugin on Freenode is... not-so-good. It definitely does not work all the time as expected.
+
 You can make Supybot identify itself to the network NickServ after it has connected.
 
 `config plugins.Services.noJoinsUntilIdentified True`::
