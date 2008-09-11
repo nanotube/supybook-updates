@@ -158,7 +158,7 @@ Related plugins: [green]#Network, Services#.
 
 ==== Adding a network ====
 
-`network connect <network> [<host[:port]>]` ?
+`network connect <network> [<host[:port]>]`
 
 ==== Reconnecting ====
 
@@ -416,13 +416,16 @@ Related plugins: [green]#Admin, Config#.
 
 ==== Setting nickname & alternative nick ====
 
-`admin nick <newnick>`
+`admin nick <newnick>`::
+	Change nick to `newnick`.
 
-`config nick`
+`config nick`::
+	Default nick.
 
-`config nick.alternates` - space-separated list of alternate nicks, %s refers to nick.
+`config nick.alternates`::
+	Space-separated list of alternate nicks, %s refers to nick.
 
-TODO: different nick in different networks?
+NOTE: It is not possible to have a different nick in different networks.
 
 ==== Setting ident ====
 
@@ -519,6 +522,7 @@ This is a list of issues I have not yet figured out how to do, or there simply i
 - Incomplete multi-network support
 	* Capabilities are not network/channel -specific, but channel-specific. If channel by same name exists in two networks, the users have same capabilities on both
 	* No way to add network-specific hostmasks
+	* Not possible for the bot to have different nick in different networks
 - There is no command to reboot the bot; it must be done from the shell
 
 == Tips ==
