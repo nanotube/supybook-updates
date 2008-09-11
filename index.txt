@@ -415,7 +415,31 @@ Users can change their name themselves.
 
 ==== Manipulating user capabilities ====
 
-TODO
+`capabilities [user]`::
+	List capabilities of the `user`, or the calling user.
+
+`admin capability add <user|hostmask> <capability>`::
+	Add `capability` to `user` or a user that matches the `hostmask`.
+
+`admin capability remove <user|hostmask> <capability>`::
+	Ditto, but remove the capability.
+
+`channel capability add [channel] <nick|user> <capability..>`::
+	Add capability `capability` on `channel` to `nick`/`user`.
+
+`channel capability remove [channel] <nick|user> <capability..>`::
+	Remove capability `capability` on `channel` from `nick`/`user`.
+
+`defaultcapability <add|remove> <capability>`::
+	Add or remove `capability` from list of capabilities given to new users.
+
+`config capabilities`::
+	List default capabilities given to new users.
+
+.output
+----
+-owner -admin -trusted
+----
 
 === General bot maintenance ===
 
