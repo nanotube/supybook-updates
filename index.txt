@@ -41,6 +41,10 @@ If you spot an error, have suggestions or just want to tell me how much you love
 
 == Getting started ==
 
+=== Initial configuration ===
+
+Create a new directory (eg. `mkdir ~/supybot`) and run `supybot-wizard` in it. Follow the directions to get the bot initially configured and connected to a network.
+
 === Identifying to the bot ===
 
 After running supybot-wizard and starting the bot, connect to the same IRC network it is on, and /query it. You can identify with the `identify <name> <password>` command. You can check the bot's idea of who you are with the `whoami` command.
