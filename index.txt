@@ -126,6 +126,7 @@ Configuration items are hierarchical. The "root" item is `supybot`, which can be
 `config search <word>`::
 	Show configuration items matching `word`.
 
+[[capabilities]]
 === Capabilities ===
 
 Many traditional IRC bots manage permissions of users using flags. Some network services in fact, do, too. Each user can have various flags on each channel. The flags can mean auto-op, op, use of !ban command and so forth. On side of those, there are often global user flags that entitle the user to full access, global auto-op, etc. Some bots also support channel flags that determine what bot functionality is available on the channel.
@@ -149,6 +150,8 @@ There are some special capabilities recognized by Supybot:
 
 `trusted`::
 	Allow user to run commands that can potentially crash the bot, or cause denial of service on the system it's running on.
+
+Commands used to manipulate capabilities are covered in the <<channel-capabilities,Manipulating channel capabilities>> and <<user-capabilities,Manipulating user capabilities>> sections.
 
 == Administrative tasks ==
 
@@ -371,6 +374,7 @@ The [green]#Seen# plugin keeps track of last channel/nick/user activity. Most ty
 `seen user [channel] <user>`:
 	Ditto, except use a user name, disregarding what nick the said user had.
 
+[[channel-capabilities]]
 ==== Manipulating channel capabilities ====
 
 `capability list [channel]`::
@@ -386,6 +390,8 @@ The [green]#Seen# plugin keeps track of last channel/nick/user activity. Most ty
 	Whether to allow users on `channel` by default to access non-maintenance related commands. Default is True.
 	+
 	Note that this concerns unregistered users as well. So if you want to disallow use of commands by unregistered users, set default user capabilities to allow them, and set this to False.
+
+See also <<capabilities,Capabilities>>.
 
 === Users ===
 
@@ -429,6 +435,7 @@ NOTE: There is no way to add network-specific hostmasks.
 
 Users can change their name themselves.
 
+[[user-capabilities]]
 ==== Manipulating user capabilities ====
 
 `capabilities [user]`::
@@ -456,6 +463,8 @@ Users can change their name themselves.
 ----
 -owner -admin -trusted
 ----
+
+See also <<capabilities,Capabilities>>.
 
 === General bot maintenance ===
 
