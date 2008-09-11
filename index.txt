@@ -371,6 +371,22 @@ The [green]#Seen# plugin keeps track of last channel/nick/user activity. Most ty
 `seen user [channel] <user>`:
 	Ditto, except use a user name, disregarding what nick the said user had.
 
+==== Manipulating channel capabilities ====
+
+`capability list [channel]`::
+	List capabilities on `channel`.
+
+`capability set [channel] <capability..>`::
+	Adds the given `capability` to `channel`.
+
+`capability unset [channel] <capability..>`::
+	Removes the given `capability` from `channel`.
+
+`capability setdefault [channel] <True|False>`::
+	Whether to allow users on `channel` by default to access non-maintenance related commands. Default is True.
+	+
+	Note that this concerns unregistered users as well. So if you want to disallow use of commands by unregistered users, set default user capabilities to allow them, and set this to False.
+
 === Users ===
 
 Related plugins: [green]#Users#.
