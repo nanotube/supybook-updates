@@ -158,24 +158,31 @@ Related plugins: [green]#Network, Services#.
 
 ==== Adding a network ====
 
-`network connect <network> [<host[:port]>]`
+`network connect [--ssl] <network> [<host[:port]>] [password]`::
+	Connect to `network`. `host` must be provided if the network is new or has no servers defined.
 
 ==== Reconnecting ====
 
-`reconnect [network] [quit message]`.
+`reconnect [network] [message]`::
+	Disconnects and connects `network`, or current if not specified. `message`, if given, is shown as the quit message, otherwise `config plugins.Owner.quitMsg` is used, or your nickname.
 
 ==== Disconnecting ====
 
-`network disconnect [network] [message]`
+`network disconnect [network] [message]`::
+	Disconnect `network`, or current if not specified. `message` as above.
 
 ==== Listing networks ====
 
-`networks`
+`networks`::
+	List of networks & servers currently connected to.
 
 .output
 ----
 freenode: wolfe.freenode.net and ircnet: irc.elisa.fi
 ----
+
+`config list networks`::
+	List all networks.
 
 ==== Adding more servers ====
 
