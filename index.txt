@@ -653,7 +653,15 @@ I don't personally like the default Supybot replies: I hate the nick prefix and 
 
 Fortunately there are plenty of settings to configure how Supybot replies. These can be listed with `config reply` and `config replies`.
 
-The `reply` items determine how Supybot acts, and `replies` contains some messages it uses. I prefer `config reply.withNickPrefix False` and `config replies.success OK` myself.
+The `reply` items determine how Supybot acts, and `replies` contains some messages it uses. I prefer:
+
+`config reply.withNickPrefix False`
+
+`config replies.success OK`
+
+`config reply.error.inPrivate True`.
+
+What follows is a list of configuration items regarding replying.
 
 .reply
 *#inPrivate*:: Whether to reply in private to commands given on channel.
@@ -670,17 +678,33 @@ The `reply` items determine how Supybot acts, and `replies` contains some messag
 
 *#withNotice*:: Whether to use notices instead of regular messages.
 
-@#mores
+*#mores.instant*:: How many messages to send initially before prompting for `more`. Default is 1.
 
-@error
+*#mores.length*:: How long messages can be. Default is 0, which uses rocket science to determine the maximum number of characters that can be fit into a message without it collapsing into a black hole.
 
-@format
+*#mores.maximum*:: Maximum number of messages to queue, default is 50.
 
-@whenAddressedBy
+*#error.inPrivate*:: Whether to send errors in private instead of replying on channel.
 
-maximumLength
+*#error.noCapability*:: If True, don't tell users why they can not run a command because of missing capabilities.
 
-oneToOne
+*#error.withNotice*:: Whether to send errors as notices instead of regular messages.
 
-#withNoticeWhenPrivate
+*error.detailed*:: Whether to show an exception or a generic error when something breaks. Mostly useful for developers.
+
+*#format.time*:: Format string for timestamps (`%I:%M %p, %B %d, %Y`, eg. '08:41 PM, September 11, 2008').
+
+*#whenAddressedBy.chars*:: List of characters the bot will recognize as addressing (when a command is prefixed with one of them), besides the nick of the bot.
+
+*#whenAddressedBy.nicks*:: List of extra nicks to consider as addressing the bot, despite the current nick.
+
+*#whenAddressedBy.strings*:: Like the chars key, except a space-separated list of strings to accept as command prefix. This allows multicharacter command prefixes.
+
+*#whenAddressedBy.nick.atEnd*:: Whether to consider messages that end in the bot's nick to be addressed to the bot.
+
+*maximumLength*:: Maximum length of a reply message from the bot. This does not mean the length of a single message (prompting for `more`), but the whole message.
+
+*oneToOne*:: Whether to send replies consisting of multiple messages in a single message.
+
+*withNoticeWhenPrivate*: Whether to use notices instead of private messages.
 
