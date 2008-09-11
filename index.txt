@@ -706,5 +706,5 @@ What follows is a list of configuration items regarding replying.
 
 *oneToOne*:: Whether to send replies consisting of multiple messages in a single message.
 
-*withNoticeWhenPrivate*: Whether to use notices instead of private messages.
+*withNoticeWhenPrivate*:: Whether to use notices instead of private messages.
 
