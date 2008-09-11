@@ -8,6 +8,8 @@ Heikki Hokkanen <hoxu@users.sf.net>
 
 NOTE: At the time of this writing, Supybot version is 0.83.3. If you are using a newer (or even older) version, keep that in mind.
 
+NOTE: This document is very much a work in process. It covers nowhere near everything there is to Supybot. However, it hopefully allows a good start into learning Supybot.
+
 === What is this document? ===
 
 This document is a handbook for http://supybot.com/[Supybot], the IRC (http://en.wikipedia.org/wiki/Internet_Relay_Chat[Internet Relay Chat]) bot written in Python.
