@@ -439,7 +439,19 @@ NOTE: It is not possible to have a different nick in different networks.
 
 ==== Setting command prefix / controlling when the bot replies ====
 
-TODO: config search nick & config search prefix contain related stuff.
+Like most other bots, the bot can be addressed by its nickname, or a command prefix character (any or many of `~!@#$%^&*()_-+=[{}]\|'";:,<.>/?`). For special (braindead?) purposes the bot can also be made assume that all lines are addressed to it.
+
+`config reply.whenAddressedBy.chars`::
+	List of characters the bot will recognize as addressing, besides the nick of the bot.
+
+`config channel [channel] reply.whenAddressedBy.chars`::
+	Ditto, but for a specific channel.
+
+`config reply.whenNotAddressed`::
+	Assume everyone wants to talk to the bot, eg. treat all messages as if addressed to the bot. This does not imply `reply.WhenNotCommand False` which you should set as well.
+
+`config reply.whenNotCommand`::
+	Whether to reply when addressed with an invalid command.
 
 ==== Listing and searching settings ====
 
@@ -586,7 +598,7 @@ The `reply` items determine how Supybot acts, and `replies` contains some messag
 
 *#showSimpleSyntax*:: Whether to be extra helpful when a user fails syntax of a command.
 
-*#whenNotAddressed*:: Assume everyone wants to talk to the bot, eg. treat all messages as if addressed to the bot. This does not imply `replyWhenNotCommand False` which you should set as well.
+*#whenNotAddressed*:: Assume everyone wants to talk to the bot, eg. treat all messages as if addressed to the bot. This does not imply `reply.WhenNotCommand False` which you should set as well.
 
 *#whenNotCommand*:: Whether to reply when addressed with an invalid command.
 
