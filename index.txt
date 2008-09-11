@@ -197,7 +197,7 @@ chat.freenode.net:6667
 You can make Supybot identify itself to the network NickServ after it has connected.
 
 `config plugins.Services.noJoinsUntilIdentified True`::
-	Settings this is useful on Freenode and other networks who change the user mask after identifying to NickServ.
+	Settings this is useful on Freenode and other networks who change the user mask after identifying to NickServ. In my experience this seems to be a tad buggy, so I don't recommend enabling it unless really needed.
 
 `config plugins.Services.NickServ NickServ`::
 	Tell the bot what name NickServ can be found under.
