@@ -144,7 +144,7 @@ Next, if the command was run on the channel, the 'channel capabilities' are chec
 There are some special capabilities recognized by Supybot:
 
 `owner`::
-	For bot owners: the people who have "physical" access to the bot and its files. This cannot be granted online; the 'conf/users.conf' file must be edited by hand followed by `reload`.
+	For bot owners: the people who have "physical" access to the bot and its files. This cannot be granted online; the 'conf/users.conf' file must be edited by hand followed by `reload`. Owners are exempt from `#channel,op` capability checks and channel anticapabilities.
 
 `admin`::
 	For bot administrators. Users with this capability can manage global bot properties, make the bot join new channels and so forth. However, they can't do channel administration which is reserved for ops.
