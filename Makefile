@@ -1,4 +1,7 @@
 PARAMS=-a toc -a toclevels=3 -a date=$(shell date +%Y-%m-%d) -a numbered -d book
+ifdef VERSION
+REVISION=$(VERSION)
+endif
 ifdef REVISION
 PARAMS+=-a revision=$(REVISION)
 #else
@@ -9,6 +12,14 @@ all: index.html
 
 pdf: index.pdf
 
+release: all
+ifndef VERSION
+	@echo "Usage: make release VERSION=x"
+	@false
+else
+	tar --owner=0 --group=0 -zcf supybook-$(VERSION).tar.gz index.txt index.html
+endif
+
 %.html: %.txt
 	asciidoc $(PARAMS) $<
 
@@ -18,4 +29,4 @@ pdf: index.pdf
 clean:
 	@$(RM) index.html
 
-.PHONY: all pdf
+.PHONY: all pdf release release-tar
