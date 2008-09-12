@@ -661,9 +661,12 @@ The `reply` items determine how Supybot acts, and `replies` contains some messag
 
 `config reply.error.inPrivate True`.
 
-What follows is a list of configuration items regarding replying.
+== Reference ==
 
-.reply
+=== Configuration ===
+
+==== reply ====
+
 *#inPrivate*:: Whether to reply in private to commands given on channel.
 
 *#requireChannelCommandsToBeSentInChannel*:: -
