@@ -667,7 +667,7 @@ Key,Default,Description
 #randomGrabber,False,Whether to grab random lines as quotes.
 #randomGrabber.averageTimeBetweenGrabs,864000,Average number of seconds to wait between random grabs. When half of this has passed a random grab may occur.
 randomGrabber.minimumCharacters,8,Minimum characters needed to consider a line eligible for random grab.
-randomGrabber.minimumWords,3,Ditto, but for words.
+randomGrabber.minimumWords,3,"Ditto, but for words."
 ~~~~
 
 == Caveats ==
