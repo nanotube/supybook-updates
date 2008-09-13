@@ -520,6 +520,8 @@ Like most other bots, the bot can be addressed by its nickname, or a command pre
 `config reply.whenNotCommand`::
 	Whether to reply when addressed with an invalid command.
 
+See also: <<config_reply,Configuration: reply>>.
+
 ==== Listing and searching settings ====
 
 `config search <word>` - list config items containing word.
@@ -750,6 +752,7 @@ The `reply` items determine how Supybot acts, and `replies` contains some messag
 
 === Configuration ===
 
+[[config_reply]]
 ==== reply ====
 
 *#inPrivate*:: Whether to reply in private to commands given on channel.
