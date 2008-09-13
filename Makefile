@@ -17,7 +17,7 @@ ifndef VERSION
 	@echo "Usage: make release VERSION=x"
 	@false
 else
-	tar --owner=0 --group=0 -zcf supybook-$(VERSION).tar.gz index.txt index.html
+	tar --owner=0 --group=0 --transform 's!^!supybook-$(VERSION)/!' -zcf supybook-$(VERSION).tar.gz index.txt index.html Makefile
 endif
 
 %.html: %.txt
