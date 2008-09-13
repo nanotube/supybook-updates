@@ -12,7 +12,7 @@ all: index.html
 
 pdf: index.pdf
 
-release: all
+release: clean all
 ifndef VERSION
 	@echo "Usage: make release VERSION=x"
 	@false
