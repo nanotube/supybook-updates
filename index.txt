@@ -606,9 +606,31 @@ This is a nick-based replacement for NoteServ and the likes. Simply put, you giv
 `config plugins.Later.private`::
 	Whether to send notes in private or on the channel where the recipient is seen.
 
-=== Games ===
+=== Toys ===
 
-Plugins: [green]#Games, Nickometer, Quote, QuoteGrabs#.
+==== Games ====
+
+`coin`::
+	Heads or tails?
+
+`dice <dices>d<sides>`::
+	Roll `dices` dices, each having `sides` sides. Lists result for each dice separately. The sum will be between `dices` and `dices` x `sides`.
+
+`eightball [question]`::
+	Answers a question. But don't expect the bot to pass 
+
+`monologue [channel]`::
+	Check how long your monologue on the `channel` is, in case you are lose count. This is probably my favourite useless command.
+
+`roulette ["spin"]`::
+	Russian roulette. If `spin` is given, spins the chambers. This isn't really necessary since it will be done automatically at the end of the round. Provides a different experience if the bot is opped.
+
+
+==== Nickometer ====
+
+==== Quote ====
+
+==== QuoteGrabs ====
 
 == Caveats ==
 
