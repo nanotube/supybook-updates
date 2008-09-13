@@ -549,6 +549,28 @@ Like most other bots, the bot can be addressed by its nickname, or a command pre
 
 === Useful plugins ===
 
+==== ChannelStats ====
+
+[green]#ChannelStats# provides channel/registered user statistics (statistics as in 'large numbers').
+
+`channelstats [channel]`:
+	Show statistics for `channel`: messages, characters, words, smileys, frowns, actions, joins, parts, quits, kicks, mode changes, and topic changes.
+
+`stats [channel] [user]`:
+	Show statistics for `user` on `channel`: messages, characters, words, smileys, frowns, actions, joins, parts, quits, kicks given/received, topic changes, and mode changes.
+
+WARNING: This plugin may turn otherwise normal users into spammers. But it can also provide an incentive to register on the bot. :-)
+
+.plugins.ChannelStats
+[frame="topbot"]
+`15`15`70~~~
+Key,Default,Description
+~~~
+#frowns,`:| :-/ :-\ :\ :/ :( :-( :'(`,Space-separated list of frowns.
+#selfStats,`True`,Whether to include the bot in the statistics.
+#smileys,`:) ;) ;] :-) :-D :D :P :p (= =)`,Space-separated list of smileys.
+~~~~
+
 ==== Dict ====
 
 [green]#Dict# provides dictionary functionality using dict.org. You can also use a local dictd server.
