@@ -4,8 +4,8 @@ REVISION=$(VERSION)
 endif
 ifdef REVISION
 PARAMS+=-a revision=$(REVISION)
-#else
-#PARAMS+=-a revision=$(shell git describe)
+else
+PARAMS+=-a revision=$(shell git describe)$(shell git diff-index HEAD |grep '' > /dev/null && echo '+dirty')
 endif
 
 all: index.html
