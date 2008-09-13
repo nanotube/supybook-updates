@@ -16,7 +16,7 @@ This document is a handbook for http://supybot.com/[Supybot], the IRC (http://en
 
 === Motivation behind this document ===
 
-Some time ago I started needing a bot for various purposes. The bot would have to be able to take care of auto-opping and similar "traditional" channel duties. This made me think of http://oer.equnet.org/[Oer], an old but very nice bot. However, I also wanted to have factoid functionality similar to blootbot/infobot, without having to run multiple bots. That was when I arrived at Supybot once again. This time I decided to give it a closer look.
+Some time ago I started needing an IRC bot for various purposes. The bot would have to be able to take care of auto-opping and similar "traditional" channel duties. This made me think of http://oer.equnet.org/[Oer], an old but very nice bot. However, I also wanted to have factoid functionality similar to http://blootbot.sourceforge.net/[blootbot]/http://infobot.org/[infobot], without having to run multiple bots. That was when I arrived at Supybot once again. This time I decided to give it a closer look.
 
 My experience of the documentation was lacking though. I longed for something similar to http://oer.equnet.org/um.php[Oer's User Manual] that provides a quick references for basic administrator tasks and so forth. Alas, I could not find such document.
 
@@ -30,12 +30,15 @@ I figured I could as well wrap up such a handbook while learning to use the bot 
 `command <nick...>`::
 	A command that takes one or more parameters.
 
+`command [\--{foo,bar}] <value>`::
+	A command that takes two optional options as parameters, eg. `\--foo value` and/or `\--bar value`.
+
 [green]#Plugin#::
 	A plugin name
 
 === This document is Free ===
 
-This document is Free (TM) as defined by the http://www.fsf.org/[Free Software Foundation], more specifically, this document is available under the terms of http://www.gnu.org/licenses/gpl-3.0.txt[GNU General Public License version 3 (GPLv3)].
+This document is Free (TM) as defined by the http://www.fsf.org/[Free Software Foundation], more specifically, this document is available under the terms of http://www.gnu.org/licenses/gpl-3.0.txt[GNU General Public License version 3 (GPLv3)]. The source is a text file that can be converted to various formats by http://www.methods.co.nz/asciidoc/[asciidoc].
 
 === How to give feedback ===
 
@@ -67,7 +70,7 @@ Supybot allows nested commands, in other words, you can pass the result of a com
 
 `config reply.withNickPrefix [config default reply.withNickPrefix]`
 
-Obviously, that wasn't very neat. They could've included a `config reset <key>` command instead, for example. But I'm sure you can figure out *something* useful to do with this.
+Obviously, that wasn't very neat. They could've included a `config reset <key>` command instead, for example. But I'm sure you can figure out *something* more useful to do with this, as a homework ;-)
 
 === Plugins ===
 
@@ -259,7 +262,7 @@ A new channel is added by messaging the bot in the same network with `join <chan
 
 `channels`
 
-NOTE: This only works in private, to prevent knowledge of top secret channels from falling to wrong hands.
+NOTE: This only works in private, to prevent knowledge of top secret channels from falling into wrong hands.
 
 You can list channels in another network with `config networks.<network>.channels`.
 
