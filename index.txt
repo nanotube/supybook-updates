@@ -625,8 +625,15 @@ This is a nick-based replacement for NoteServ and the likes. Simply put, you giv
 `roulette ["spin"]`::
 	Russian roulette. If `spin` is given, spins the chambers. This isn't really necessary since it will be done automatically at the end of the round. Provides a different experience if the bot is opped.
 
-
 ==== Nickometer ====
+
+`nickometer [nick]`:
+	Give an objective evaluation on the lameness of `nick`, or your nick if not provided. This is similar to the same command in blootbot.
+
+.output
+----
+The "lame nick-o-meter" reading for "1eEteStWaReZL0rD[69X~" is 99.98%.
+----
 
 ==== Quote ====
 
