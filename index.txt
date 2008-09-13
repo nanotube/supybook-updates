@@ -639,6 +639,27 @@ The "lame nick-o-meter" reading for "1eEteStWaReZL0rD[69X~" is 99.98%.
 
 ==== Quote ====
 
+`quote add [channel] <text>`::
+	Add `text` as a quote for `channel`.
+
+`quote change [channel] <id> <regexp>`::
+	Change quote `id` on `channel` using `regexp`. For example, `s/foo/bar/g` changes all instances of `foo` to `bar`.
+
+`quote get [channel] <id>`::
+	Show quote # `id` for `channel`.
+
+`quote random [channel]`::
+	Show random quote from `channel`.
+
+`quote remove [channel] <id>`::
+	Remove quote # `id` from `channel`.
+
+`quote search [channel] [\--{regexp,by} value] [glob]`::
+	Find quotes from `channel` matching regexp if provided, added by nick `by` if provided, and matching `glob` if provided. `glob` may contain wildcards (eg. `foo*bar`), while `regexp` is a regular expression (eg. `/la.*laa/`). Note that you can really provide both regexp and the glob - both must match in that case.
+
+`quote stats [channel]`::
+	Show how many quotes there are.
+
 ==== QuoteGrabs ====
 
 This plugin allows users to 'grab' the most recent line of another nick as a quote.
