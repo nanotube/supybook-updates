@@ -639,6 +639,37 @@ The "lame nick-o-meter" reading for "1eEteStWaReZL0rD[69X~" is 99.98%.
 
 ==== QuoteGrabs ====
 
+This plugin allows users to 'grab' the most recent line of another nick as a quote.
+
+`quotegrabs get [channel] <id>`::
+	Show quote # `id` .
+
+`quotegrabs grab [channel] <nick>`::
+	Save last line from `nick` as a quote.
+
+`quotegrabs list [channel] <nick>`::
+	List quotes for `nick`, newest first. This does not display full quotes, but part of each, along with the id.
+
+`quotegrabs quote [channel] <nick>`::
+	Show last quote of `nick`.
+
+`quotegrabs random [channel] [nick]`::
+	Random quote from any nick, or `nick` if provided.
+
+`quotegrabs search [channel] <text>`::
+	Show quotes containing `text`. Unfortunately, this does not list the nick or allow searching only given nick's quotes. Id and quote content will be shown.
+
+.plugins.QuoteGrabs
+[frame="topbot"]
+`15`15`70~~~
+Key,Default,Description
+~~~
+#randomGrabber,False,Whether to grab random lines as quotes.
+#randomGrabber.averageTimeBetweenGrabs,864000,Average number of seconds to wait between random grabs. When half of this has passed a random grab may occur.
+randomGrabber.minimumCharacters,8,Minimum characters needed to consider a line eligible for random grab.
+randomGrabber.minimumWords,3,Ditto, but for words.
+~~~~
+
 == Caveats ==
 
 This is a list of issues I have not yet figured out how to do, or there simply isn't a way.
