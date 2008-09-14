@@ -88,6 +88,8 @@ The `list` command ([green]#Plugin#) can be used to list loaded plugins. You can
 
 `config plugins.<plugin>.public False`
 
+WARNING: This does not really make the plugins private. They can still be listed by unregistered users (unless they have anticapability for `list`). This is a bug in my opinion.
+
 `list`::
 	List currently loaded plugins, excluding the ones set non-public.
 
