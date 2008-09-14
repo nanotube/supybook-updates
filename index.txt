@@ -730,7 +730,7 @@ This is a list of issues I have not yet figured out how to do, or there simply i
 
 === How to emulate blootbot CMDs using MoobotFactoids ===
 
-[,yellow]#Thanks to Tobias Rosenqvist for the tip!#
+[,yellow]#Thanks to Tobias "beardy" Rosenqvist for the tip!#
 
 We try to make a command factoid, like we are used to with blootbot:
 
@@ -788,7 +788,7 @@ The `reply` items determine how Supybot acts, and `replies` contains some messag
 
 === More on nested commands ===
 
-[,yellow]#Thanks to Tobias Rosenqvist for the tip!#
+[,yellow]#Thanks to Tobias "beardy" Rosenqvist for the tip!#
 
 For those familliar with unix shells, (bash in particular), nested commands can be compared to doing command substitution, as in `$(command)`.
 
