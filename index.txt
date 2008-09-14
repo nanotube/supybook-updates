@@ -766,7 +766,7 @@ Then use an alias to do the command, with arguments (the "action" command
 is found in the Reply plugin), here you also see a use of a nested command:
 
 ----
-<user> alias add givefruit action gives [fruits] to $1
+<user> alias add givefruit action gives "[fruits]" to $1
 <bot> Ok.
 <user> givefruit someone
  * bot gives a pear to someone
