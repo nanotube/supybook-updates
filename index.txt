@@ -786,6 +786,28 @@ The `reply` items determine how Supybot acts, and `replies` contains some messag
 
 `config reply.error.inPrivate True`.
 
+=== More on nested commands ===
+
+[,yellow]#Thanks to Tobias Rosenqvist for the tip!#
+
+For those familliar with unix shells, (bash in particular), nested commands can be compared to doing command substitution, as in `$(command)`.
+
+Nested commands are by default enclosed by square brackets (`[]`). The `commands.nested.brackets` configuration variable can be used to set these to `<>`, `{}`, or `()`.
+
+----
+<user> echo The title of the Supybot website is: [web title http://www.supybot.com/]
+<bot> The title of the Supybot website is: Welcome to Supybot.com! Supybot Website
+----
+
+Another way nested commands can work, is like a pipe, if the configuration variable `commands.nested.pipeSyntax` is set to `True`.
+
+Same example as above, but using the pipeSyntax:
+
+----
+<user> web title http://www.supybot.com/ | echo The title of the Supybot website is:
+<bot> The title of the Supybot website is: Welcome to Supybot.com! Supybot Website
+----
+
 == Reference ==
 
 === Configuration ===
