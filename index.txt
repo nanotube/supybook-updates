@@ -48,7 +48,22 @@ If you spot an error, have suggestions or just want to tell me how much you love
 
 === Initial configuration ===
 
-Create a new directory (eg. `mkdir ~/supybot`) and run `supybot-wizard` in it. Follow the directions to get the bot initially configured and connected to a network.
+Create a new directory (eg. `mkdir ~/supybot`) and run `supybot-wizard` in it. Follow the directions to get the bot initially configured.
+
+Once you are ready with the wizard, I suggest you start the bot inside screen:
+
+----
+$ screen
+$ supybot configFile
+----
+
+This way you can attach to the screen later to see the messages it writes to stdout, while still running the bot in the background. Alternative is to run it in the daemon mode, `supybot \--daemon configFile`.
+
+You can set up a crontab to start the bot automatically, for example:
+----
+$ crontab -e
+> @reboot screen -d -m supybot /path/to/configFile
+----
 
 === Identifying to the bot ===
 
