@@ -120,6 +120,8 @@ WARNING: This does not really make the plugins private. They can still be listed
 `unload <plugin>`::
 	Unloads a plugin. The [green]#Owner# plugin cannot be unloaded.
 
+NOTE: Plugins can store information in a database. By default, the database is channel-specific. This can be changed by modifying `config databases.plugins.channelSpecific` to be global. The config item can also be set on per-channel basis.
+
 === Configuration ===
 
 Most of Supybot configuration is done online using the [green]#Config# plugin. This excludes things such as granting the owner capability (must be done by modifying the files).
