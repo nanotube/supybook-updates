@@ -539,6 +539,19 @@ Like most other bots, the bot can be addressed by its nickname, or a command pre
 
 See also: <<config_reply,Configuration: reply>>.
 
+==== Keeping the primary nick ====
+
+Like other bots, Supybot can be configured to try and keep the primary nick using the [green]#NickCapture# plugin. This is primarily useful in networks with no NickServ support.
+
+`load NickCapture`::
+	Loads the plugin which works without further configuration.
+
+`config plugins.NickCapture.ison`::
+	Whether the plugin is actively checking for the primary nick. This setting makes no sense, as you might as well `unload NickCapture` if you think about setting this to false.
+
+`config plugins.NickCapture.ison.period`::
+	How many seconds to wait between nick availibity polls. The default is 600 (10 min). The smaller you set this, the higher the chance of the bot recovering the nick when it becomes available. On the other hand, you will also generate more traffic so you might want to avoid that.
+
 === Owner commands ===
 
 `owner announce <text>` - send `text` to all channels the bot is on.
