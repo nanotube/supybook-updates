@@ -361,13 +361,16 @@ NOTE: Users matching the ban list are not automatically kicked off the channel. 
 
 ==== Maintaining the ignore list ====
 
-`channel ignore add [channel] <nick|hostmask> [expires]`
+`channel ignore add [channel] <nick|hostmask> [expires]`::
+	Ignores `hostmask` (or the full hostmask `nick` currently has) on `channel`. If `expires` is given, the ignore expires after that many seconds.
 
-`channel ignore list [channel]`
+`channel ignore list [channel]`::
+	Show ignored hostmasks on `channel`. This does not show the expire times, though (argh!).
 
-`channel ignore remove [channel] <hostmask>`
+`channel ignore remove [channel] <hostmask>`::
+	Remove `hostmask` from list of ignored hostmasks on `channel`.
 
-NOTE: There is also a global ignore list.
+NOTE: There is also a global ignore list, available for admins.
 
 ==== Listing channel nicks ====
 
