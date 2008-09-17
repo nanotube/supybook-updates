@@ -539,14 +539,6 @@ Like most other bots, the bot can be addressed by its nickname, or a command pre
 
 See also: <<config_reply,Configuration: reply>>.
 
-==== Listing and searching settings ====
-
-`config search <word>` - list config items containing word.
-
-`config <name>` - show config value for name.
-
-`config <name> <value>` - set config value for name.
-
 === Owner commands ===
 
 `owner announce <text>` - send `text` to all channels the bot is on.
