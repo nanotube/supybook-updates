@@ -725,6 +725,7 @@ This is a list of issues I have not yet figured out how to do, or there simply i
 	* No way to add network-specific hostmasks
 	* Not possible for the bot to have different nick in different networks
 - There is no command to reboot the bot; it must be done from the shell
+- Capabilities/anticapabilities for commands with spaces in them are not supported
 
 == Tips ==
 
