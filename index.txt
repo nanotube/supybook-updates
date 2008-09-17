@@ -877,3 +877,42 @@ Same example as above, but using the pipeSyntax:
 
 *withNoticeWhenPrivate*:: Whether to use notices instead of private messages.
 
+=== Directory tree ===
+
+This section contains list of the directories and files supybot uses, and what they are for.
+
+NOTE: If you modify the configuration files by hand when the bot is running, you need to run `config reload`.
+
+`backup/`::
+	For backups of config files.
+
+`conf/`::
+	Configuration files: {channels,ignores,userdata,users}.conf
+
+`data/`::
+	Plugin databases.
+
+`data/#channel/`::
+	Channel-specific plugin databases.
+
+`data/tmp/`::
+	Temporary plugin data files (eg. database journals).
+
+`logs/`::
+	Logs.
+
+`logs/ChannelLogger/`::
+	ChannelLogger logs. The structure depends on the config variables.
+
+`logs/messages.log`::
+	The main logfile.
+
+`plugins/`::
+	Local plugin directory. This is by default listed in `config directories.plugins`.
+
+`<bot>.conf`::
+	The main configuration file of the bot.
+
+`tmp/`::
+	Temporary files.
+
