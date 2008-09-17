@@ -275,7 +275,8 @@ WARNING: The `network command` command does not seem to check if the user having
 
 ==== Adding a new channel ====
 
-A new channel is added by messaging the bot in the same network with `join <channel> [key]` command.
+`join <channel> [key]`::
+	Joins the `channel` using `key` if provided. Channels are automatically remembered and joined when the bot connects to the network next time.
 
 ==== Listing channels ====
 
@@ -283,23 +284,27 @@ A new channel is added by messaging the bot in the same network with `join <chan
 
 NOTE: This only works in private, to prevent knowledge of top secret channels from falling into wrong hands.
 
-You can list channels in another network with `config networks.<network>.channels`.
+You can list channels in another network with `config networks.<network>.channels`. Or with `network command <network> channels`.
 
 ==== Removing a channel ====
 
-`part [channel] [reason]`
+`part [channel] [reason]`::
+	Makes the bot leave `channel`, showing `reason` as part message if given. Note that all channel data is retained, but the bot does not join the channel anymore the next time it connects to the network.
 
 ==== Modifying channel config ====
 
-`config channel [channel] <name> <value>`
+`config channel [channel] <name> <value>`::
+	Sets config item `name` on `channel` to `value`, overriding the global value.
 
 ==== Setting the key ====
 
-`channel key [channel] [key]` can be used to set or clear the channel key.
+`channel key [channel] [key]`::
+	Sets key on `channel` to `key`, or removes it if `key` is not given.
 
 ==== Setting the limit ====
 
-`channel limit [channel] [limit]` sets or clears the channel limit.
+`channel limit [channel] [limit]`::
+	Sets limit on `channel` to `limit`, or removes it if `limit` is not given (or is zero).
 
 ==== Channel commands ====
 
