@@ -271,6 +271,8 @@ NOTE: Commands in this section (such as adding/removing channels) work in the cu
 
 NOTE: If you want to /msg the bot in one network, while having the command apply in another network, you can use the `network command <network> <command> [params]` command. The reply comes in the other network if you are there as well.
 
+WARNING: The `network command` command does not seem to check if the user having your nick in the other network is recognized (eg. identified or recognized by hostmasks), so the reply may end up to someone else.
+
 ==== Adding a new channel ====
 
 A new channel is added by messaging the bot in the same network with `join <channel> [key]` command.
