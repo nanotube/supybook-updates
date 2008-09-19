@@ -608,6 +608,7 @@ Allows you to provide users a way to chat on a channel anonymously (eg. only the
 Key,Default,Description
 ~~~
 #requirePresenceInChannel,True,Whether the user must be in the channel the message is targeted to.
+allowPrivateTarget,False,Whether to allow a nick as a target for say. NOTE: This has not been implemented in 0.83.3 although it exists!
 requireCapability,,"If set, capability to check for."
 requireRegistration,True,Whether registration is required to use this plugin.
 ~~~
