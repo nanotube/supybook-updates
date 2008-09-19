@@ -359,6 +359,9 @@ Channel ops can use the following commands to control the channel via the bot, a
 `ban remove [channel] <hostmask>`::
 	Removes the ban on given `hostmask`.
 
+`config plugins.Channel.banmask <string>`::
+	Hostmask style for `ban add`: `exact`, `nick`, `user`, `host`. This means which parts of the nick's current hostmask are used (rest are wildcarded). Default is `host user` (eg. `*!user@host`).
+
 NOTE: Users matching the ban list are not automatically kicked off the channel. See the `kban` command in the previous section to kick and ban a user.
 
 ==== Maintaining the ignore list ====
