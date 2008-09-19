@@ -280,6 +280,8 @@ WARNING: The `network command` command does not seem to check if the user having
 `join <channel> [key]`::
 	Joins the `channel` using `key` if provided. Channels are automatically remembered and joined when the bot connects to the network next time.
 
+NOTE: `config plugins.Channel.alwaysRejoin` determines whether the bot will (attempt to) rejoin the channel when kicked out (the default).
+
 ==== Listing channels ====
 
 `channels`
