@@ -69,6 +69,8 @@ $ crontab -e
 
 After running supybot-wizard and starting the bot, connect to the same IRC network it is on, and /query it. You can identify with the `identify <name> <password>` command. You can check the bot's idea of who you are with the `whoami` command.
 
+NOTE: All commands that contain a `password` must be sent to the bot in private.
+
 === Accessing the online help ===
 
 Most commands on the bot have a short online help available. You can use `list` to list loaded plugins, and `list <plugin>` to list commands in those plugins. `help [plugin] <command>` can be used to access the command help. Use `more` to read long messages from the bot.
