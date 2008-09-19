@@ -394,9 +394,26 @@ By default logs will go into logs/ChannelLogger/<network>/<channel>/<channel>.lo
 
 NOTE: The logs of [green]#ChannelLogger# cannot be searched online. However, other plugins provide some searching functionality. See <<searching-history,Searching the history>>.
 
-==== Auto-ops & voices ====
+==== Auto-ops and voices ====
 
 Auto-opping is provided by the [green]#AutoMode# plugin.
+
+`load AutoMode`::
+	Loads the [green]#AutoMode# plugin, which works out-of-box. By default it's enabled on all channels and voices/halfops/ops users with respective capabilities. You can enable auto-opping only on some channels by tweaking the config keys below.
+
+.plugins.AutoMode
+[frame="topbot"]
+`15`15`70~~~
+Key,Default,Description
+~~~
+#enable,True,Whether the plugin is enabled.
+#fallthrough,False,"If enabled and `op` is False, halfops/voices instead if they are True."
+#halfop,True,Halfop users with the `halfop` capability.
+#op,True,"Ditto, but op."
+#voice,True,"Ditto, but voice."
+#ban,True,Whether to ban people who join the channel and are on the banlist.
+#ban.period,86400,How many seconds bans will last.
+~~~~
 
 ==== Seen ====
 
