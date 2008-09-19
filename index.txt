@@ -593,6 +593,25 @@ Like other bots, Supybot can be configured to try and keep the primary nick usin
 
 === Useful plugins ===
 
+==== Anonymous ====
+
+Allows you to provide users a way to chat on a channel anonymously (eg. only the bot owner(s) know via logs who are talking).
+
+`do <channel> <action>`::
+	Sends `action` to `channel`. This is the same as a normal IRC client `/me does something` command.
+
+`say <channel> <text>`::
+	Say `text` on `channel`.
+
+.plugins.Anonymous
+`15`15`70~~~
+Key,Default,Description
+~~~
+#requirePresenceInChannel,True,Whether the user must be in the channel the message is targeted to.
+requireCapability,,"If set, capability to check for."
+requireRegistration,True,Whether registration is required to use this plugin.
+~~~
+
 ==== Dict ====
 
 [green]#Dict# provides dictionary functionality using dict.org. You can also use a local dictd server.
