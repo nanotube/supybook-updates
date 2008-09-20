@@ -156,6 +156,16 @@ Configuration items are hierarchical. The "root" item is `supybot`, which can be
 `config search <word>`::
 	Show configuration items matching `word`.
 
+NOTE: Some of the sections in this document have a list of related configuration items. They are listed similarly to the table below. In this example the config value could be modified with the `config plugin.example.foo <True|False>` command. If the key is prefixed with `#`, the config value can be set both globally and on channel-specific basis.
+
+.plugin.example
+`15`15`70~~~
+Key,Default,Description
+~~~
+foo,True,Example key.
+#bar,False,Example key that can be set on channels as well.
+~~~
+
 [[capabilities]]
 === Capabilities ===
 
