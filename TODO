@@ -1,0 +1,38 @@
+[0.0.3]
+
+[]
+- Administrative tasks -> Channels -> Linking channels using Relay
+	- join [channel]
+	- nicks [channel]
+	- part <channel>
+
+- MoobotFactoids
+
+- how to kickban users/masks automatically?
+
+- How to change irc server
+
+- Alias
+- Format
+- Filter
+- Google
+
+- terms section?
+	- hostmask: *!*@host
+
+- each section should have a list of relevant config entries
+
+- individual user configuration variable?
+	- config help reply.withNoticeWhenPrivate
+	- XXX: probably not implemented, so remove from comments?
+
+- colors & formatting
+	- owner capability commands with red background?
+- sockpuppetry
+	- tell
+	- raw server commands
+
+- Cover all bundled plugins in some detail
+
+- complete plugin, command, config reference
+
