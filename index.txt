@@ -669,7 +669,7 @@ The [green]#Seen# plugin keeps track of last channel/nick/user activity. Most ty
 `seen any [channel] [\--user <user>] [nick]`::
 	Lists any activity given `nick` or `user` was doing on the channel. If no `nick` or `user` is given, returns the last activity on the channel, regardless of who it was from.
 
-`seen last [channel]`:
+`seen last [channel]`::
 	Last line said on the channel.
 
 `seen [channel] <nick>`::
@@ -677,6 +677,45 @@ The [green]#Seen# plugin keeps track of last channel/nick/user activity. Most ty
 
 `seen user [channel] <user>`:
 	Ditto, except use a user name, disregarding what nick the said user had.
+
+[[plugin_web]]
+==== Web ====
+
+The [green]#Web# plugin contains some useful WWW-related functionality, such as fetching titles for URLs users paste on the channel.
+
+`doctype <url>`::
+	Show the doctype line of `url`, if any.
+
+`fetch <url>`::
+	Show the contents of `url`. Amount of data shown is determined by the configuration variable `plugins.Web.fetch.maximum`.
+
+`headers <url>`::
+	Show web server headers for the `url`.
+
+`netcraft <hostname|ip>`::
+	Ask netcraft what OS and web server it thinks the server is running.
+
+`size <url>`::
+	Show size of `url`, based on the `Content-Length` header sent by the web server.
+
+`title <url>`::
+	Show title for `url`. This can be done automatically for all URLs pasted on a channel; see the configuration variable `plugins.Web.titleSnarfer`.
+
+`urlquote <text>`::
+	Return `text` quoted into a URL. Eg. `urlquote foo bar` -> `foo%20bar`.
+
+`urlunquote <text>`::
+	Likewise, but reverse.
+
+.plugins.Web
+[frame="topbot"]
+`15`15`70~~~
+Key,Default,Description
+~~~~
+#nonSnarfingRegexp,,"if set, URLs matching the pattern are not snarfed."
+#titleSnarfer,false,Whether to fetch and show the title for pasted URLs.
+fetch.maximum,0,"Maximum bytes to fetch with the `fetch` command. If zero, `fetch` is disabled."
+~~~~
 
 === Entertainment ===
 
