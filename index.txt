@@ -156,6 +156,9 @@ Configuration items are hierarchical. The "root" item is `supybot`, which can be
 `config search <word>`::
 	Show configuration items matching `word`.
 
+`owner flush`::
+	Save configuration changes to disk. This should be done automatically as well, if the `flush` configuration item is True (the default).
+
 NOTE: Some of the sections in this document have a list of related configuration items. They are listed similarly to the table below. In this example the config value could be modified with the `config plugin.example.foo <True|False>` command. If the key is prefixed with `#`, the config value can be set both globally and on channel-specific basis.
 
 .plugin.example
