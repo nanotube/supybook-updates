@@ -27,6 +27,6 @@ endif
 	a2x $(PARAMS) -f pdf $<
 
 clean:
-	@$(RM) index.html
+	@$(RM) index.html index.pdf
 
 .PHONY: all pdf release release-tar
