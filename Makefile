@@ -8,16 +8,18 @@ else
 PARAMS+=-a revision=$(shell git describe)$(shell git diff-index HEAD |grep '' > /dev/null && echo '+dirty')
 endif
 
-all: index.html
+all: html
+
+html: index.html
 
 pdf: index.pdf
 
-release: clean all
+release: clean html pdf
 ifndef VERSION
 	@echo "Usage: make release VERSION=x"
 	@false
 else
-	tar --owner=0 --group=0 --transform 's!^!supybook-$(VERSION)/!' -zcf supybook-$(VERSION).tar.gz index.txt index.html Makefile
+	tar --owner=0 --group=0 --transform 's!^!supybook-$(VERSION)/!' -zcf supybook-$(VERSION).tar.gz index.txt index.html Makefile index.pdf
 endif
 
 %.html: %.txt
