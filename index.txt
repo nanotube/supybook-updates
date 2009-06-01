@@ -404,7 +404,7 @@ Related plugins: [green]#Topic#.
 
 Supybot allows elaborate manipulation of the channel topic. Topic consists of items, separated by a configurable character (default is `||`). Items are one-indexed.
 
-People who have used the Oer bot may notice that the topic manipulation commands are somewhat similar.
+People who have used the Oer bot may notice that the topic manipulation commands are http://oer.equnet.org/help.php#um39[somewhat similar].
 
 `topic add [channel] <text>`::
 	Add a new topic item at the end.
@@ -465,6 +465,14 @@ People who have used the Oer bot may notice that the topic manipulation commands
 
 `topic unlock [channel]`::
 	Set channel mode `-t`, allowing all users to change the topic.
+
+.Aliases for partial oer compatibility:
+----
+alias add ta topic add $1
+alias add td topic delete $1
+alias add te topic replace $1 $2
+alias add ts topic swap $1 $2
+----
 
 ==== Logging ====
 
