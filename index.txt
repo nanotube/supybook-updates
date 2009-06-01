@@ -466,6 +466,18 @@ People who have used the Oer bot may notice that the topic manipulation commands
 `topic unlock [channel]`::
 	Set channel mode `-t`, allowing all users to change the topic.
 
+.plugins.Topic
+[frame="topbot"]
+`15`15`70~~~
+Key,Default,Description
+~~~
+#default,,Default channel topic
+#format,$topic ($nick),Format for the items
+#recognizeTopiclen,True,Whether to recognize max topic length given by the server and refuse to set longer topics.
+#separator,||,Used to concatenate items
+#undo.max,10,How long undo history to keep
+~~~
+
 .Aliases for partial oer compatibility:
 ----
 alias add ta topic add $1
