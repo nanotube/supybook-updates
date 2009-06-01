@@ -402,9 +402,69 @@ NOTE: There is also a global ignore list, available for admins.
 
 Related plugins: [green]#Topic#.
 
-Supybot allows elaborate manipulation of the channel topic.
+Supybot allows elaborate manipulation of the channel topic. Topic consists of items, separated by a configurable character (default is `||`). Items are one-indexed.
 
-http://supybot.com/documentation/plugins/topic
+People who have used the Oer bot may notice that the topic manipulation commands are somewhat similar.
+
+`topic add [channel] <text>`::
+	Add a new topic item at the end.
+
+`topic change [channel] <number> <regexp>`::
+	Do a regular expression substitution on the topic item `number`. For example: `topic change 2 s/foo/bar/`.
+
+`topic default [channel]`::
+	Restore topic on channel to the default set with `config plugins.Topic.default`.
+
+`topic fit [channel] <text>`::
+	Adds a new topic item at the end like `topic add`, but if there isn't enough space, first removes some items from the beginning. `topic add` complains if there isn't enough space.
+
+`topic get [channel] <number>`::
+	Return topic item `number`.
+
+`topic insert [channel] <text>`::
+	Add a new topic item in the beginning.
+
+`topic list [channel]`::
+	Return list of topic items.
+
+`topic lock [channel]`::
+	Set channel mode `+t`, preventing non-opped users from changing the topic.
+
+`topic redo [channel]`::
+	Undo the last undo.
+
+`topic remove [channel] <number>`::
+	Remove item `number` from the topic.
+
+`topic reorder [channel] <number>...`::
+	Reorder topic items in the given order. You must give as many numbers as there are items. For example, to move third item to first position, use `topic reorder 3 1 2`.
+
+`topic replace [channel] <number> <text>`::
+	Replace topic item `number` with `text`.
+
+`topic restore [channel]`::
+	Revert any changes made to the topic by users, and set it back to whatever the bot last set it to.
+
+`topic separator [channel] <separator>`::
+	Change the topic separator to `separator`.
+
+`topic set [channel] [number] <text>`::
+	Replace either the whole topic or, if `number` is given, one item. In the latter case, this is the same as `topic replace`.
+
+`topic shuffle [channel]`::
+	Reorder the topic items randomly.
+
+`topic swap [channel] <number1> <number2>`::
+	Swap topic items at the given positions.
+
+`topic [channel]`::
+	Show (the whole) topic for the channel.
+
+`topic undo [channel]`::
+	Revert the last change a topic command made to the topic. Note that if users directly edited the topic, those changes will be lost. Can be used multiple times.
+
+`topic unlock [channel]`::
+	Set channel mode `-t`, allowing all users to change the topic.
 
 ==== Logging ====
 
