@@ -30,8 +30,8 @@ I figured I could as well wrap up such a handbook while learning to use the bot 
 `command <nick...>`::
 	A command that takes one or more parameters.
 
-`command [\--{foo,bar}] <value>`::
-	A command that takes two optional options as parameters, eg. `\--foo value` and/or `\--bar value`.
+`command [--{foo,bar}] <value>`::
+	A command that takes two optional options as parameters, eg. `--foo value` and/or `--bar value`.
 
 [green]#Plugin#::
 	A plugin name
@@ -57,7 +57,7 @@ $ screen
 $ supybot configFile
 ----
 
-This way you can attach to the screen later to see the messages it writes to stdout, while still running the bot in the background. Alternative is to run it in the daemon mode, `supybot \--daemon configFile`.
+This way you can attach to the screen later to see the messages it writes to stdout, while still running the bot in the background. Alternative is to run it in the daemon mode, `supybot --daemon configFile`.
 
 You can set up a crontab to start the bot automatically, for example:
 ----
@@ -99,7 +99,7 @@ Error: The command "ignore list" is available in the Admin and Channel plugins.
 Please specify the plugin whose command you wish to call by using its name as a command before "ignore list".
 ----
 
-Thus, you need to either use `admin ignore list` or `channel ignore list` command. That is, unless you define which plugin is the default one using the `defaultplugin [\--remove] <command> [plugin]` command provided in the [green]#Owner# plugin.
+Thus, you need to either use `admin ignore list` or `channel ignore list` command. That is, unless you define which plugin is the default one using the `defaultplugin [--remove] <command> [plugin]` command provided in the [green]#Owner# plugin.
 
 The `list` command ([green]#Plugin#) can be used to list loaded plugins. You can prevent some plugins from showing in the list with the command:
 
@@ -110,13 +110,13 @@ WARNING: This does not really make the plugins private. They can still be listed
 `list`::
 	List currently loaded plugins, excluding the ones set non-public.
 
-`list \--private`::
+`list --private`::
 	List loaded plugins that are set to non-public.
 
 `list <plugin>`::
 	List commands provided by the given plugin.
 
-`load [\--deprecated] <plugin>`::
+`load [--deprecated] <plugin>`::
 	Load a plugin. Supybot looks for plugins in directories listed in `config conf.supybot.directories.plugins`.
 
 `unload <plugin>`::
@@ -341,7 +341,7 @@ Channel ops can use the following commands to control the channel via the bot, a
 `devoice [channel] [nick...]`::
 	Ditto, but devoices.
 
-`kban [channel] [\--{exact,nick,user,host}] <nick> [seconds] [reason]`::
+`kban [channel] [--{exact,nick,user,host}] <nick> [seconds] [reason]`::
 	Bans and kicks the given nick from the channel. If `seconds` is specified and is not 0, the ban will expire after that time.
 
 `mode [channel] <mode> [params]`::
@@ -676,12 +676,12 @@ Like other bots, Supybot can be configured to try and keep the primary nick usin
 [[searching-history]]
 === Searching the history ===
 
-`url last [channel] [\--{from,with,without,near,proto} value] [\--nolimit]`::
-	Find last URL (or all with `\--nolimit`) matching given criteria. From matches nick, with(out) part of the URL, near rest of the line where the URL was, and proto matches the protocol (https, ftp, etc). In case of multiple URLs, the newest is listed first. Multiple criterias can be given.
+`url last [channel] [--{from,with,without,near,proto} value] [--nolimit]`::
+	Find last URL (or all with `--nolimit`) matching given criteria. From matches nick, with(out) part of the URL, near rest of the line where the URL was, and proto matches the protocol (https, ftp, etc). In case of multiple URLs, the newest is listed first. Multiple criterias can be given.
 
 	NOTE: This command lists only the URLs, not nick or what message the URLs were part of. No date is shown either.
 
-`last [\--from,in,on,with,without,regexp} value] [\--nolimit]`::
+`last [--from,in,on,with,without,regexp} value] [--nolimit]`::
 	Find messages matching given criteria. From matches nick, in matches channel, on matches network, with(out) matches part of the message, regexp matches messages that are included by the regular expression. Also see `config protocols.irc.maxHistoryLength`.
 
 === Useful plugins ===
@@ -749,7 +749,7 @@ This is a nick-based replacement for NoteServ and the likes. Simply put, you giv
 
 The [green]#Seen# plugin keeps track of last channel/nick/user activity. Most typical use is asking the bot when a given user was last seen chatting on a channel.
 
-`seen any [channel] [\--user <user>] [nick]`::
+`seen any [channel] [--user <user>] [nick]`::
 	Lists any activity given `nick` or `user` was doing on the channel. If no `nick` or `user` is given, returns the last activity on the channel, regardless of who it was from.
 
 `seen last [channel]`::
@@ -872,7 +872,7 @@ The "lame nick-o-meter" reading for "1eEteStWaReZL0rD[69X~" is 99.98%.
 `quote remove [channel] <id>`::
 	Remove quote # `id` from `channel`.
 
-`quote search [channel] [\--{regexp,by} value] [glob]`::
+`quote search [channel] [--{regexp,by} value] [glob]`::
 	Find quotes from `channel` matching regexp if provided, added by nick `by` if provided, and matching `glob` if provided. `glob` may contain wildcards (eg. `foo*bar`), while `regexp` is a regular expression (eg. `/la.*laa/`). Note that you can really provide both regexp and the glob - both must match in that case.
 
 `quote stats [channel]`::
