@@ -912,6 +912,23 @@ randomGrabber.minimumCharacters,8,Minimum characters needed to consider a line e
 randomGrabber.minimumWords,3,"Ditto, but for words."
 ~~~~
 
+=== Third-party plugins ===
+
+[[plugin_messageparser]]
+==== MessageParser ====
+
+----
+<user> your question is covered in the ,,supybook
+<supybot> Follow this link to the supybook, a supybot handbook: http://supybook.fealdia.org/
+
+<user> I'd like a ,,(factoids search *) please
+<supybot> 'conditional', 'ggc', 'ggr', 'git', 'gitrepo', 'gribblegitcontent', 'gribblegitrepo'
+----
+
+MessageParser allows adding regular expression triggers that can match any line. Multiple triggers can match a single line, and the same trigger can match several times. This plugin is a very useful addition for support channels.
+
+Visit the http://sourceforge.net/apps/mediawiki/gribble/index.php?title=MessageParser_Plugin[MessageParser wiki] for more information.
+
 == Caveats ==
 
 This is a list of issues I have not yet figured out how to do, or there simply isn't a way.
