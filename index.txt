@@ -689,29 +689,34 @@ Like other bots, Supybot can be configured to try and keep the primary nick usin
 [[plugin_alias]]
 ==== Alias ====
 
-Alias is one of the most powerful plugins available in Supybot. It allows you to set up 'shortcuts' to other commands. When put together with command nesting, and the ability to provide arbitrary number of required and optional arguments to each alias, this becomes a very versatile feature. The main commands in this plugin are 'add' and 'remove' to add and remove aliases:
+Alias is one of the most powerful plugins available in Supybot. It allows you to set up 'shortcuts' to other commands. When put together with command nesting, and the ability to provide arbitrary number of required and optional arguments to each alias, this becomes a very versatile feature. The main commands in this plugin are `add` and `remove` to add and remove aliases:
 
 `add <name> <alias>`::
-	 Defines an alias `<name>` that executes `<alias>`. The `<alias>` should be in the standard "command argument [nestedcommand argument]" arguments to the alias; they'll be filled with the first, second, etc. arguments. $1, $2, etc. can be used for required arguments. @1, @2, etc. can be used for optional arguments. $* simply means "all remaining arguments," and cannot be combined with optional arguments.
+	 Defines an alias `name` that executes `alias`. The `alias` should be in the standard "command argument [nestedcommand argument]" arguments to the alias; they'll be filled with the first, second, etc. arguments. $1, $2, etc. can be used for required arguments. @1, @2, etc. can be used for optional arguments. $* simply means "all remaining arguments," and cannot be combined with optional arguments.
 
 `remove <name>`::
-	Removes the alias named `<name>`.
+	Removes the alias named `name`.
 
 As a simple example, let's say you want to set up a quick check to see if some website is down, using the downforeveryoneorjustme.com service. See the following example session for how you'd accomlish that:
+
 ----
 <user> alias add isitdown web title http://downforeveryoneorjustme.com/$1
 <supybot> The operation succeeded.
 <user> isitdown google.com
 <supybot> It's just you.
 ----
-What this has accomplished is that you don't have to give the full command, which would be `web title http://downforeveryoneorjustme.com/google.com`, instead you now have a quick shortcut to check the status of a site. Aliases get their own help messsages, just like all the normal commands, which tell us what got stored in the alias. For example, for the alias above:
+
+What this has accomplished is that you don't have to give the full command, which would be `web title http://downforeveryoneorjustme.com/google.com`, instead you now have a quick shortcut to check the status of a site. Aliases get their own help messages, just like all the normal commands, which tell us what got stored in the alias. For example, for the alias above:
+
 ----
 <user> help isitdown
 <supybot> (isitdown <an alias, 1 argument>) -- Alias for "web title http://downforeveryoneorjustme.com/$1".
 ----
-We have introduced the variable substitution feature of aliases here. Note the $1 in the alias, which means "put the first argument provided to this command right here". You can also have optional arguments, which are represested as @1, @2, etc. There is also '$*' which acts as a placeholder for "all the remaining arguments", but it cannot be mixed with optional arguments. For example, we can try the following:
+
+We have introduced the variable substitution feature of aliases here. Note the `$1` in the alias, which means "put the first argument provided to this command right here". You can also have optional arguments, which are represented as `@1`, `@2`, etc. There is also `$*` which acts as a placeholder for "all the remaining arguments", but it cannot be mixed with optional arguments. For example, we can try the following:
+
 ----
-<user>alias add saymoo echo moo $1 @1
+<user> alias add saymoo echo moo $1 @1
 <supybot> The operation succeeded.
 <user> help saymoo
 <supybot> (saymoo <an alias, at least 1 argument>) -- Alias for "echo moo $1 @1".
@@ -721,14 +726,17 @@ We have introduced the variable substitution feature of aliases here. Note the $
 <supybot> moo bla stuff
 ----
 
-There are some important details to be cognizant of when you use nested commands and quotes in your aliases. For example, you might naively try the following:
+There are some important details to understand when you use nested commands and quotes in your aliases. For example, you might naively try the following:
+
 ----
 <user> alias add test echo [uptime]
 <supybot> The operation succeeded.
 <user> help test
 <supybot> (test <an alias, 0 arguments>) -- Alias for "echo I have been running for 1 day, 14 hours, 46 minutes, and 53 seconds.".
 ----
+
 Notice what happened - the uptime command was executed, then stored into the alias, rather than the actual command nesting getting stored. Every time you call the test command, the output will always be exactly the same. This is probably not what you had in mind. To avoid immediate nested command evaluation, you must put quotes around the argument to alias (or around the argument to echo). Like so:
+
 ----
 <user> alias add test "echo [uptime]"
 <supybot> The operation succeeded.
@@ -737,14 +745,18 @@ Notice what happened - the uptime command was executed, then stored into the ali
 <user> test
 <supybot> I have been running for 1 day, 14 hours, 50 minutes, and 19 seconds.
 ----
-There, much better! 
+
+There, much better!
 
 Another issue we'll want to address is, what if you want literal quotes in your alias output? For example, say you want an alias that would give the following output:
+
 ----
 <user> test
 <supybot> bla "moo" bla
 ----
-We are going to use the 'echo' command from the 'Utilities' plugin, which lets the user make the bot say any string. Our first naive try may be the following:
+
+We are going to use the `echo` command from the 'Utilities' plugin, which lets the user make the bot say any string. Our first naive try may be the following:
+
 ----
 <user> alias add test echo bla "moo" bla
 <supybot> The operation succeeded.
@@ -753,7 +765,9 @@ We are going to use the 'echo' command from the 'Utilities' plugin, which lets t
 <user> test
 <supybot> bla moo bla
 ----
+
 Doesn't work. The quotes are simply taken as quoting an argument, and don't make it into the alias. Let's try escaping the quotes and see what happens.
+
 ----
 <user> alias add test echo bla \"moo\" bla
 <supybot> The operation succeeded.
@@ -762,16 +776,20 @@ Doesn't work. The quotes are simply taken as quoting an argument, and don't make
 <user> test
 <supybot> bla \"moo\" bla
 ----
+
 Closer, but still no cigar - this is because of the way supybot argument parsing works - unquoted arguments get taken as string literals, while quoted arguments get string parsing done on them. Compare the two outputs below:
+
 ----
 <user> echo bla\"bla
 <supybot> bla\"bla
 <user> echo "bla\"bla"
 <supybot> bla"bla
 ----
-Raw unquoted string is taken as a literal, while the quoted string interprets the '\"' sequence as an escaped quote character. This is what we want. Our goal is, then, to get the string 'echo "bla \"moo\" bla"' as the content of our alias. 
+
+Raw unquoted string is taken as a literal, while the quoted string interprets the `\"` sequence as an escaped quote character. This is what we want. Our goal is, then, to get the string `echo "bla \"moo\" bla"` as the content of our alias.
 
 Our final, successful, try follows:
+
 ----
 <user> alias add test "echo \"bla \\\"moo\\\" bla\""
 <supybot> The operation succeeded.
@@ -780,10 +798,10 @@ Our final, successful, try follows:
 <user> help test
 <supybot> (test <an alias, 0 arguments>) -- Alias for "echo "bla \"moo\" bla"".
 ----
-Note what is happening here. First, we quote the entire content of the alias as an argument, to get string parsing going. We escape the quote character before bla, to get a literal quote character into the alias string. We then triple-escape the second quote character. '\\' gets a literal backslash into our alias string, while the following '\"' gets a literal quote. We do the same thing for the closing quotation around 'moo'. Finally, we stick in another literal quote to finish quoting the argument to echo, and at the end, close the exterior quotation pair.
 
-Quite a bit of detail here - but necessary to know if you're going to be using aliases to perform complex tasks. 
+Note what is happening here. First, we quote the entire content of the alias as an argument, to get string parsing going. We escape the quote character before bla, to get a literal quote character into the alias string. We then triple-escape the second quote character. `\\` gets a literal backslash into our alias string, while the following `\"` gets a literal quote. We do the same thing for the closing quotation around `moo`. Finally, we stick in another literal quote to finish quoting the argument to echo, and at the end, close the exterior quotation pair.
 
+Quite a bit of detail here - but necessary to know if you're going to be using aliases to perform complex tasks.
 
 [[plugin_anonymous]]
 ==== Anonymous ====
