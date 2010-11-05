@@ -861,6 +861,31 @@ This is a nick-based replacement for NoteServ and the likes. Simply put, you giv
 `config plugins.Later.private`::
 	Whether to send notes in private or on the channel where the recipient is seen.
 
+[[plugin_moobotfactoids]]
+==== MoobotFactoids ====
+
+MoobotFactoids implements nifty factoids.
+
+----
+<user> !supybook is <reply> Please read http://supybook.fealdia.org/ before asking.
+<bot> OK
+<user> !supybook
+<bot> Please read http://supybook.fealdia.org/ before asking.
+----
+
+.Setting up
+----
+config databases [config databases] sqlite
+load moobotfactoids
+----
+
+NOTE: If you get any of the following errors, you need to install sqlite, python-sqlite and python-pysqlite.
+
+----
+NoSuitableDatabase: No suitable databases were found.  Suitable databases include sqlite.
+Error: You need to have PySQLite installed to use this plugin.  Download it at <http://pysqlite.org/>
+----
+
 [[plugin_seen]]
 ==== Seen ====
 
@@ -959,6 +984,7 @@ Key,Default,Description
 
 `roulette ["spin"]`::
 	Russian roulette. If `spin` is given, spins the chambers. This isn't really necessary since it will be done automatically at the end of the round. Provides a different experience if the bot is opped.
+
 
 [[plugin_nickometer]]
 ==== Nickometer ====
